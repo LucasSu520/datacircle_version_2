@@ -1,9 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_tuan/model/activity_list.dart';
-import 'package:flutter_tuan/activity_app_theme.dart';
+import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
 
 class TuanPage extends StatefulWidget {
   @override
@@ -24,27 +25,58 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
-        child: Column(
+      color: Colors.white,
+      child: Column(
+        children: [
+          Row(
             children: [
-              TabBar(
-                tabs: this._tabBarList,
-                controller: mController,
-                indicatorColor: Colors.black,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.black87,
-              ),
               Expanded(
-                child:
-                     TabBarView(
-                        controller: this.mController,
-                        children: this._tabBarViewList,
-                      ),
-
+                child: TabBar(
+                  indicatorPadding: EdgeInsets.only(left: 10),
+                  tabs: this._tabBarList,
+                  controller: mController,
+                  isScrollable: true,
+                  labelPadding: EdgeInsets.symmetric(horizontal: 23.0),
+                  indicatorColor: Colors.lightBlue,
+                  indicator: RoundUnderlineTabIndicator(
+                      borderSide:
+                          BorderSide(width: 3.5, color: Colors.lightBlue)),
+                  labelStyle: TextStyle(fontSize: 18.0),
+                  labelColor: Colors.black,
+                  unselectedLabelStyle: TextStyle(fontSize: 14.0),
+                  unselectedLabelColor: Colors.grey,
                 ),
+              ),
+              Padding(
+                  padding: EdgeInsets.only(right: 20.0),
+                  child: Container(
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/search.png',
+                        height: 30,
+                        width: 30,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    decoration: BoxDecoration(borderRadius:BorderRadius.all(Radius.circular(10.0)),boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3))
+                    ]),
+                  )),
             ],
           ),
-        );
+          Expanded(
+            child: TabBarView(
+              controller: this.mController,
+              children: this._tabBarViewList,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -52,7 +84,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: this);
     this.mController =
-        new TabController(initialIndex: 0, length: 3, vsync: this);
+        new TabController(initialIndex: 0, length: 6, vsync: this);
     this._tabBarList = [
       Tab(
         text: '推荐',
@@ -62,7 +94,16 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
       ),
       Tab(
         text: '排名',
-      )
+      ),
+      Tab(
+        text: '推荐',
+      ),
+      Tab(
+        text: '即将开始',
+      ),
+      Tab(
+        text: '排名',
+      ),
     ];
     this._tabBarViewList = [
       Center(
@@ -73,7 +114,16 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
       ),
       Center(
         child: Text('排名'),
-      )
+      ),
+      Center(
+        child: Text('推荐'),
+      ),
+      Center(
+        child: Text("即将开始"),
+      ),
+      Center(
+        child: Text('排名'),
+      ),
     ];
     super.initState();
   }
