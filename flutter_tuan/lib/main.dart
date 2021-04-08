@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/navigator/tab_navigator.dart';
 import 'package:flutter/services.dart';
@@ -16,13 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme:ThemeData(
-          appBarTheme: AppBarTheme(
-            elevation: 0.0,
-            color: Colors.white,
-            brightness: Brightness.light,
-          ),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          elevation: 0.0,
+          color: Colors.white,
+          brightness: Brightness.light,
         ),
+      ),
       debugShowCheckedModeBanner: false,
       home: TabNavigator(),
     );
