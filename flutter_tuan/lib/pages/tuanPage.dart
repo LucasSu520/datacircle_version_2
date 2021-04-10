@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/model/activity_list.dart';
 import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
-import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
+import 'package:flutter_tuan/pages/recommendedPage.dart';
 
 class TuanPage extends StatefulWidget {
   @override
@@ -11,11 +10,8 @@ class TuanPage extends StatefulWidget {
 }
 
 class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
-  List<ActivityListData> activityList = ActivityListData.activityList;
-  AnimationController animationController;
   List<Tab> _tabBarList;
   List<Widget> _tabBarViewList;
-
   TabController mController;
 
   DateTime startDate = DateTime.now();
@@ -31,55 +27,64 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
             children: [
               Expanded(
                 child: TabBar(
+                  // isScrollable: true,
+                  labelPadding: EdgeInsets.zero,
                   indicatorSize: TabBarIndicatorSize.label,
                   tabs: this._tabBarList,
                   controller: mController,
                   indicatorColor: Colors.lightBlue,
                   indicator: RoundUnderlineTabIndicator(
-                    borderSide: BorderSide(width: 2,color: Colors.lightBlue)
-                  ),
-                  labelStyle: TextStyle(fontSize: 19.0),
+                      borderSide:
+                          BorderSide(width: 2, color: Colors.lightBlue)),
+                  labelStyle: TextStyle(fontSize: 20.0),
                   labelColor: Colors.black,
+                  // isScrollable: true,
                   unselectedLabelStyle: TextStyle(fontSize: 15.0),
                   unselectedLabelColor: Colors.grey,
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.only(right: 15.0),
-                  child: Container(
-                    height: 28,
-                    width: 28,
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                          color: Colors.white,
-                          blurRadius: 15.0,
-                          spreadRadius: 15.0)
-                    ]),
-                    child: FloatingActionButton(
-                      onPressed: () {},
-                      backgroundColor: Colors.white,
-                      child: Image(
-                        image: AssetImage('assets/search.png'),
-                        width: 16,
-                        height: 16,
-                      ),
-                      elevation: 5.0,
-                    ),
-                  )),
+                padding: EdgeInsets.only(right: 3),
+                child: Container(
+                  height: 38,
+                  width: 38,
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.white,
+                            blurRadius: 15.0,
+                            spreadRadius: 15.0),
+                      ],
+                      borderRadius:
+                          BorderRadius.only(bottomLeft: Radius.circular(10.0))),
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      print('多多');
+                    },
+                    backgroundColor: Colors.white,
+                    child: Image(
+                      image: AssetImage('assets/search.png'),
+                      width: 20,
+                      height: 20,
+                    ), elevation: 5.0,
+                  ),
+
+                ),
+              ),
               Padding(
-                padding: EdgeInsets.only(right: 15.0),
+                padding: EdgeInsets.only(right: 5),
                 child: GestureDetector(
-                    onTap: () {},
-                    child: ClipOval(
-                      child: Container(
-                        height: 28,
-                        width: 28,
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                              color: Colors.green,
-                              spreadRadius: 20.0,
-                              blurRadius: 20),
-                        ]),
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () {
+                      print('this is clipOval');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                      color: Colors.transparent,
+                      height: 48,
+                      width: 48,
+                      child: ClipOval(
                         child: Image(
                           image: AssetImage('assets/wolfKill.jpeg'),
                           fit: BoxFit.cover,
@@ -102,8 +107,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    animationController = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this);
+
     this._tabBarList = [
       Tab(
         text: '推荐',
@@ -114,11 +118,10 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
       Tab(
         text: '排名',
       ),
-
     ];
     this._tabBarViewList = [
       Center(
-        child: Text('推荐'),
+        child: RecommendedPage(),
       ),
       Center(
         child: Text("即将开始"),
@@ -139,7 +142,6 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    animationController.dispose();
     super.dispose();
   }
 }

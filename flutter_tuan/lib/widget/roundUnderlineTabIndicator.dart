@@ -1,4 +1,3 @@
-
 // 默认高度从46改为40
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 
 const double _kTabHeight = 40.0;
 const double _kTextAndIconTabHeight = 72.0;
+const EdgeInsets kTabLabelPadding = EdgeInsets.symmetric(horizontal: 5.0);
 
 class RoundUnderlineTabIndicator extends Decoration {
   /// Create an underline style selected tab indicator.
@@ -14,7 +14,7 @@ class RoundUnderlineTabIndicator extends Decoration {
   const RoundUnderlineTabIndicator({
     this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
     this.insets = EdgeInsets.zero,
-  }) : assert(borderSide != null),
+  })  : assert(borderSide != null),
         assert(insets != null);
 
   /// The color and weight of the horizontal line drawn below the selected tab.
@@ -50,7 +50,7 @@ class RoundUnderlineTabIndicator extends Decoration {
   }
 
   @override
-  _UnderlinePainter createBoxPainter([ VoidCallback onChanged ]) {
+  _UnderlinePainter createBoxPainter([VoidCallback onChanged]) {
     return _UnderlinePainter(this, onChanged);
   }
 }
@@ -89,18 +89,14 @@ class _UnderlinePainter extends BoxPainter {
     assert(configuration.size != null);
     final Rect rect = offset & configuration.size;
     final TextDirection textDirection = configuration.textDirection;
-    final Rect indicator = _indicatorRectFor(rect, textDirection).deflate(borderSide.width / 2.0);
+    final Rect indicator =
+        _indicatorRectFor(rect, textDirection).deflate(borderSide.width / 2.0);
 //    final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.square;
     // 改为圆角
     final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.round;
     canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
   }
 }
-
-
-
-
-
 
 class VgTab extends StatelessWidget {
   /// Creates a material design [TabBar] tab.
@@ -112,8 +108,10 @@ class VgTab extends StatelessWidget {
     this.text,
     this.icon,
     this.child,
-  }) : assert(text != null || child != null || icon != null),
-        assert(!(text != null && null != child)), // TODO(goderbauer): https://github.com/dart-lang/sdk/issues/34180
+  })  : assert(text != null || child != null || icon != null),
+        assert(!(text != null &&
+            null !=
+                child)), // TODO(goderbauer): https://github.com/dart-lang/sdk/issues/34180
         super(key: key);
 
   /// The text to display as the tab's label.
@@ -138,6 +136,9 @@ class VgTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterial(context));
+
+
+
 
     double height;
     Widget label;
@@ -165,7 +166,10 @@ class VgTab extends StatelessWidget {
     return SizedBox(
       height: height,
       child: Center(
-        child: label,
+        child: new Padding(
+          padding: kTabLabelPadding,
+          child: label,
+        ),
         widthFactor: 1.0,
       ),
     );
@@ -175,6 +179,9 @@ class VgTab extends StatelessWidget {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(StringProperty('text', text, defaultValue: null));
-    properties.add(DiagnosticsProperty<Widget>('icon', icon, defaultValue: null));
+    properties
+        .add(DiagnosticsProperty<Widget>('icon', icon, defaultValue: null));
   }
 }
+
+

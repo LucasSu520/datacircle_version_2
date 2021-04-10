@@ -1,26 +1,9 @@
-class ActivityListData{
-  ActivityListData({
-    this.imagePath='',
-    this.titleTxt='',
-    this.subTxt='',
-    this.group='',
-    this.dist=1.8,
-    this.personNum=0,
-    this.time='',
-    this.rating=0.0,
-});
+import 'package:flutter_tuan/model/activity.dart';
 
-  String imagePath;
-  String titleTxt;
-  String subTxt;
-  String group;
-  double dist;
-  int personNum;
-  String time;
-  double rating;
+class ActivityList{
 
-  static List<ActivityListData> activityList=<ActivityListData>[
-    ActivityListData(
+  static List<Activity> activityList=<Activity>[
+    Activity(
       imagePath:'assets/skate.jpg' ,
       titleTxt: '学习滑板（初级）',
       subTxt: '厦门大学科艺教学楼下',
@@ -28,8 +11,9 @@ class ActivityListData{
       personNum: 10,
       time: '20210508',
       rating:  5.0,
+      group: '运动'
     ),
-    ActivityListData(
+    Activity(
       imagePath: 'assets/party.jpg',
       titleTxt: 'COS party',
       subTxt: '厦门Mojito',
@@ -37,24 +21,27 @@ class ActivityListData{
       personNum: 50,
       time: '20210520',
       rating: 4.5,
+      group: '青年'
     ),
-    ActivityListData(
-      imagePath: 'assets/skate.jpg',
+    Activity(
+      imagePath: 'assets/wolfKill.jpeg',
       titleTxt: '狼人杀（高级）',
       subTxt: '富万邦麦当劳',
       dist: 1.6,
       personNum: 8,
       time: '20210508',
       rating: 3.8,
+      group: '桌游'
     ),
-    ActivityListData(
-      imagePath: 'assets/library.com',
-      titleTxt: '圆桌会议',
-      subTxt: '厦门大学图书馆',
+    Activity(
+      imagePath: 'assets/football.jpg',
+      titleTxt: '足球',
+      subTxt: '厦门大学演武场',
       dist: 1.8,
       personNum: 10,
       time: '20210618',
       rating: 5.0,
+      group: '运动'
     )
   ];
 
