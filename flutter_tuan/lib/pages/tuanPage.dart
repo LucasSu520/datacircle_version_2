@@ -3,6 +3,9 @@ import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/pages/recommendedPage.dart';
+import 'package:flutter_tuan/pages/UpComingPage.dart';
+
+import 'RankPage.dart';
 
 class TuanPage extends StatefulWidget {
   @override
@@ -67,9 +70,9 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
                       image: AssetImage('assets/search.png'),
                       width: 20,
                       height: 20,
-                    ), elevation: 5.0,
+                    ),
+                    elevation: 5.0,
                   ),
-
                 ),
               ),
               Padding(
@@ -107,7 +110,6 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-
     this._tabBarList = [
       Tab(
         text: '推荐',
@@ -120,15 +122,9 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
       ),
     ];
     this._tabBarViewList = [
-      Center(
-        child: RecommendedPage(),
-      ),
-      Center(
-        child: Text("即将开始"),
-      ),
-      Center(
-        child: Text('排名'),
-      ),
+      RecommendedPage(),
+      UpComingPage(),
+      RankPage(),
     ];
     this.mController = new TabController(
         initialIndex: 0, length: this._tabBarList.length, vsync: this);

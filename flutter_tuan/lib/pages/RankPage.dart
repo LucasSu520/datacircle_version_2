@@ -4,18 +4,18 @@ import 'package:flutter_tuan/model/activity.dart';
 import 'package:flutter_tuan/model/activity_list.dart';
 import 'package:flutter_tuan/model/activity_list_view.dart';
 
-class RecommendedPage extends StatefulWidget {
+class RankPage extends StatefulWidget {
   @override
-  _RecommendedPageState createState() => _RecommendedPageState();
+  RankPageState createState() => RankPageState();
 }
 
-class _RecommendedPageState extends State<RecommendedPage> with TickerProviderStateMixin {
+class RankPageState extends State<RankPage> with TickerProviderStateMixin {
   List<Activity> activityList;
   AnimationController animationController;
 
   @override
   void initState() {
-    activityList = ActivityList.recommendedActivityList;
+    activityList = ActivityList.rankPageActivityList;
     animationController = AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: this);
     super.initState();
@@ -40,12 +40,12 @@ class _RecommendedPageState extends State<RecommendedPage> with TickerProviderSt
           final int count = activityList.length > 10 ? 10 : activityList.length;
           final Animation<double> animation=Tween<double>(begin:0.0,end:1.0).animate(CurvedAnimation(parent: animationController, curve: Interval((1 / count)*index,1.0,curve: Curves.fastOutSlowIn)));
           animationController.forward();
-         return ActivityListView(
-           callback: (){},
-           activity: activityList[index],
-           animation: animation,
-           animationController: animationController,
-         );
+          return ActivityListView(
+            callback: (){},
+            activity: activityList[index],
+            animation: animation,
+            animationController: animationController,
+          );
         },
       ),
     );

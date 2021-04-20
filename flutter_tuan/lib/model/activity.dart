@@ -7,6 +7,7 @@ class Activity {
   int personNum;
   String time;
   double rating;
+  bool official;
   Activity({
     this.imagePath = '',
     this.titleTxt = '',
@@ -16,5 +17,6 @@ class Activity {
     this.personNum = 0,
     this.time = '',
     this.rating = 0.0,
+    this.official=false,
   });
 }

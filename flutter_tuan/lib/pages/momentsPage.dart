@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/widget/cus_search_bar.dart';
 
 class MomentsPage extends StatefulWidget {
   @override
@@ -8,6 +9,6 @@ class MomentsPage extends StatefulWidget {
 class _MomentsPageState extends State<MomentsPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(child:Text('momentsPage'),);
+    return Container();
   }
 }

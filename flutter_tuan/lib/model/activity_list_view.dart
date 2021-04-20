@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/app_theme.dart';
-import 'package:flutter_tuan/model/activity_list.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -147,10 +146,10 @@ class ActivityListView extends StatelessWidget {
                                                   const SizedBox(width: 2),
                                                   Text(
                                                       '${activity.personNum}人'),
-                                                  const SizedBox(width: 2,),
-                                                  Text(
-                                                    '时间：${activity.time}'
-                                                  )
+                                                  const SizedBox(
+                                                    width: 2,
+                                                  ),
+                                                  Text('时间：${activity.time}')
                                                 ])),
                                           ],
                                         ),
@@ -172,6 +171,17 @@ class ActivityListView extends StatelessWidget {
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 22),
                                           ),
+                                          SizedBox(
+                                            height: 4,
+                                          ),
+                                          Text(
+                                            activity.official ? '官方' : '',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w100,
+                                                fontSize: 18),
+                                          ),
                                         ],
                                       ),
                                     )
@@ -185,20 +195,24 @@ class ActivityListView extends StatelessWidget {
                             right: 8,
                             child: Material(
                               color: Colors.transparent,
-                              child: InkWell(
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {
-                                  print('多多');
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.favorite_border,
-                                    color:
-                                        AppTheme.buildLightTheme().primaryColor,
+                              child: Column(
+                                children: [
+                                  InkWell(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(32.0)),
+                                    onTap: () {
+                                      print('多多');
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Icon(
+                                        Icons.favorite_border,
+                                        color: AppTheme.buildLightTheme()
+                                            .primaryColor,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
                             ),
                           )
