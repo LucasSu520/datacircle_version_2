@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/pages/upcomingPage.dart';
 import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/pages/recommendedPage.dart';
-import 'package:flutter_tuan/pages/UpComingPage.dart';
 
 import 'RankPage.dart';
 
@@ -28,10 +28,10 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
         children: [
           Row(
             children: [
+              SizedBox(width: 8,),
               Expanded(
                 child: TabBar(
-                  // isScrollable: true,
-                  labelPadding: EdgeInsets.zero,
+                  isScrollable: true,
                   indicatorSize: TabBarIndicatorSize.label,
                   tabs: this._tabBarList,
                   controller: mController,
@@ -87,11 +87,8 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
                       color: Colors.transparent,
                       height: 48,
                       width: 48,
-                      child: ClipOval(
-                        child: Image(
-                          image: AssetImage('assets/wolfKill.jpeg'),
-                          fit: BoxFit.cover,
-                        ),
+                      child: CircleAvatar(radius: 14,
+                        backgroundImage: AssetImage('duoduo.jpg'),
                       ),
                     )),
               )

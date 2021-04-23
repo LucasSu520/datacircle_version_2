@@ -13,18 +13,28 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-
-  List<CommonModel> localNavList=[];
-
+  List<CommonModel> localNavList = [];
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
       child: ListView(
-        padding: EdgeInsets.fromLTRB(20, 10, 18, 10),
+        padding: EdgeInsets.fromLTRB(19, 10, 19, 10),
         children: [
-          SearchBar(hint: DEFAULT_TEXT,),
+          Row(children: [
+            (Expanded(
+                child: SearchBar(
+              hint: DEFAULT_TEXT,
+            ))),
+            SizedBox(
+              width: 6,
+            ),
+            CircleAvatar(
+              radius: 14,
+              backgroundImage: AssetImage('assets/duoduo.jpg'),
+            )
+          ]),
           SizedBox(
             height: 20,
           ),
@@ -54,7 +64,9 @@ class _CategoryPageState extends State<CategoryPage> {
               },
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           LocalNav(localNavList: localNavList, title: '网游 '),
           LocalNav(localNavList: localNavList, title: '运动'),
           LocalNav(localNavList: localNavList, title: '运动'),
@@ -72,17 +84,27 @@ class _CategoryPageState extends State<CategoryPage> {
 
   @override
   void initState() {
-    this.localNavList=[
-      CommonModel(image: 'assets/football.jpg',title: 'LOL线下比赛',isOfficial: true),
-      CommonModel(image: 'assets/MeetingRoom.jpg',title: '图书馆圆桌会议',isOfficial: false),
-      CommonModel(image: 'assets/wolfKill.jpeg',title: '狼人杀线下组局',isOfficial: true),
-      CommonModel(image: 'assets/party.jpg',title: '毕业party',isOfficial: true),
-      CommonModel(image: 'assets/wolfKill.jpeg',title: '狼人杀线下组局',isOfficial: true),
-      CommonModel(image: 'assets/party.jpg',title: '毕业party',isOfficial: true),
-      CommonModel(image: 'assets/wolfKill.jpeg',title: '狼人杀线下组局',isOfficial: true),
-      CommonModel(image: 'assets/party.jpg',title: '毕业party',isOfficial: true),
-      CommonModel(image: 'assets/wolfKill.jpeg',title: '狼人杀线下组局',isOfficial: true),
-      CommonModel(image: 'assets/party.jpg',title: '毕业party',isOfficial: true),
+    this.localNavList = [
+      CommonModel(
+          image: 'assets/football.jpg', title: 'LOL线下比赛', isOfficial: true),
+      CommonModel(
+          image: 'assets/MeetingRoom.jpg', title: '图书馆圆桌会议', isOfficial: false),
+      CommonModel(
+          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+      CommonModel(
+          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+      CommonModel(
+          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+      CommonModel(
+          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+      CommonModel(
+          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+      CommonModel(
+          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+      CommonModel(
+          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+      CommonModel(
+          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
     ];
     super.initState();
   }

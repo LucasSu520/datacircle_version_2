@@ -11,7 +11,7 @@ class LocalNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      nav_title(title: this.title),
+      NavTitle(title: this.title),
      Container(height: 120,child: _items(context),
       )
     ]);
@@ -68,8 +68,8 @@ class LocalNav extends StatelessWidget {
   }
 }
 
-class nav_title extends StatelessWidget {
-  const nav_title({
+class NavTitle extends StatelessWidget {
+  const NavTitle({
     Key key,
     @required this.title,
   }) : super(key: key);

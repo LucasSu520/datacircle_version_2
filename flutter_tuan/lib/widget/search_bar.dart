@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/model/travel_hot_keyword_model.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 enum SearchBarType { home, normal, homeLight }
 
@@ -59,37 +58,6 @@ class _SearchBarState extends State<SearchBar> {
     return _genHomeSearch();
   }
 
-  _genNormalSearch() {
-    return Container(
-      child: Row(children: <Widget>[
-        _wrapTap(
-            Container(
-              padding: EdgeInsets.fromLTRB(6, 5, 10, 5),
-              child: widget?.hideLeft ?? false
-                  ? null
-                  : Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.grey,
-                      size: 24,
-                    ),
-            ),
-            widget.leftButtonClick),
-        Expanded(
-          flex: 1,
-          child: _inputBox(),
-        ),
-        _wrapTap(
-            Container(
-              padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-              child: Text(
-                '搜索',
-                style: TextStyle(color: Colors.blue, fontSize: 17),
-              ),
-            ),
-            widget.rightButtonClick)
-      ]),
-    );
-  }
 
   _genHomeSearch() {
     return Container(

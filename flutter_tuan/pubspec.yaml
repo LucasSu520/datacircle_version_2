@@ -70,6 +70,10 @@ flutter:
     - sousuo.png
     - yuyin.png
     - kefu.png
+    - duoduo.jpg
+    - comment.png
+    - thumbs_up.png
+    - tweet.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
