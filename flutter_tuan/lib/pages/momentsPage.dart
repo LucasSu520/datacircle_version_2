@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/pages/forumPage.dart';
+import 'package:flutter_tuan/pages/moment_recommendedPage.dart';
 import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/widget/tile_subscrib.dart';
 
@@ -93,12 +95,8 @@ class _MomentsPageState extends State<MomentsPage>
           );
         },
       ),
-      Center(
-        child: Text('多多'),
-      ),
-      Center(
-        child: Text('多多'),
-      ),
+      MomentRecommendedPage(),
+      ForumPage(),
     ];
     _tabs = this._tabsOne;
     _tabController.addListener(() {
@@ -116,44 +114,49 @@ class _MomentsPageState extends State<MomentsPage>
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Row(children: [
-            Expanded(
-                child: GestureDetector(
-              child: TabBar(
-                controller: _tabController,
-                tabs: _tabs,
-                isScrollable: true,
-                indicator: RoundUnderlineTabIndicator(
-                  borderSide: BorderSide(color: Colors.lightBlue, width: 2),
-                ),
-                unselectedLabelStyle: TextStyle(
-                  fontSize: 15.0,
-                ),
-                unselectedLabelColor: Colors.grey,
-                labelStyle: TextStyle(fontSize: 20.0),
-                labelColor: Colors.black,
+    return Scaffold(
+      body: Material(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Row(children: [
+              Expanded(
+                  child: GestureDetector(
+                    child: TabBar(
+                      controller: _tabController,
+                      tabs: _tabs,
+                      isScrollable: true,
+                      indicator: RoundUnderlineTabIndicator(
+                        borderSide: BorderSide(color: Colors.lightBlue, width: 2),
+                      ),
+                      unselectedLabelStyle: TextStyle(
+                        fontSize: 15.0,
+                      ),
+                      unselectedLabelColor: Colors.grey,
+                      labelStyle: TextStyle(fontSize: 20.0),
+                      labelColor: Colors.black,
+                    ),
+                  )),
+              Padding(
+                padding: EdgeInsets.fromLTRB(10, 8, 20, 0),
+                child: (CircleAvatar(
+                  radius: 14.0,
+                  backgroundImage: AssetImage('assets/duoduo.jpg'),
+                )),
               ),
-            )),
-            Padding(
-              padding: EdgeInsets.fromLTRB(10, 8, 20, 0),
-              child: (CircleAvatar(
-                radius: 14.0,
-                backgroundImage: AssetImage('assets/duoduo.jpg'),
-              )),
-            ),
-          ]),
-          Expanded(
-            child: TabBarView(
-              controller: this._tabController,
-              children: this._tabViewList,
-            ),
-          )
-        ],
+            ]),
+            Expanded(
+              child: TabBarView(
+                controller: this._tabController,
+                children: this._tabViewList,
+              ),
+            )
+          ],
+        ),
       ),
+
+      //TODO when the list is touched to down, it will disappear
+      floatingActionButton: FloatingActionButton(child: Text('多多'),onPressed: (){print('woaini');},),
     );
   }
 }

@@ -9,7 +9,8 @@ class RecommendedPage extends StatefulWidget {
   _RecommendedPageState createState() => _RecommendedPageState();
 }
 
-class _RecommendedPageState extends State<RecommendedPage> with TickerProviderStateMixin {
+class _RecommendedPageState extends State<RecommendedPage>
+    with TickerProviderStateMixin {
   List<Activity> activityList;
   AnimationController animationController;
 
@@ -20,7 +21,6 @@ class _RecommendedPageState extends State<RecommendedPage> with TickerProviderSt
         duration: const Duration(milliseconds: 1000), vsync: this);
     super.initState();
   }
-
 
   @override
   void dispose() {
@@ -38,14 +38,18 @@ class _RecommendedPageState extends State<RecommendedPage> with TickerProviderSt
         scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           final int count = activityList.length > 10 ? 10 : activityList.length;
-          final Animation<double> animation=Tween<double>(begin:0.0,end:1.0).animate(CurvedAnimation(parent: animationController, curve: Interval((1 / count)*index,1.0,curve: Curves.fastOutSlowIn)));
+          final Animation<double> animation =
+              Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+                  parent: animationController,
+                  curve: Interval((1 / count) * index, 1.0,
+                      curve: Curves.fastOutSlowIn)));
           animationController.forward();
-         return ActivityListView(
-           callback: (){},
-           activity: activityList[index],
-           animation: animation,
-           animationController: animationController,
-         );
+          return ActivityListView(
+            callback: () {},
+            activity: activityList[index],
+            animation: animation,
+            animationController: animationController,
+          );
         },
       ),
     );

@@ -59,8 +59,7 @@ class _TileSubscribeState extends State<TileSubscribe> {
             child: ExpandedText(
               expandText: '查看全文',
               text:
-                  '''独立寒秋，湘江北去，橘子洲头。\n看万山红遍，层林尽染;\n漫江碧透，百舸争流。\n鹰击长空，鱼翔浅底，万类霜天竞自由。\n怅寥廓，问苍茫大地，谁主沉浮？
-              携来百侣曾游，忆往昔峥嵘岁月稠。\n恰同学少年，风华正茂；书生意气，挥斥方遒。\n指点江山，激扬文字，粪土当年万户侯。\n曾记否，到中流击水，浪遏飞舟？''',
+                  '''独立寒秋，湘江北去，橘子洲头。''',
               textAlign: TextAlign.start,
               maxLines: 4,
               route: MaterialPageRoute(builder: (ctx) {
