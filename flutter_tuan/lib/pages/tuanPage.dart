@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tuan/pages/upcomingPage.dart';
 import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/pages/recommendedPage.dart';
-
 import 'RankPage.dart';
 
 class TuanPage extends StatefulWidget {
@@ -12,13 +11,17 @@ class TuanPage extends StatefulWidget {
   _TuanPageState createState() => _TuanPageState();
 }
 
-class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
+class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin,AutomaticKeepAliveClientMixin {
   List<Tab> _tabBarList;
   List<Widget> _tabBarViewList;
   TabController mController;
 
   DateTime startDate = DateTime.now();
   DateTime endDate = DateTime.now().add(const Duration(days: 5));
+
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
                     },
                     backgroundColor: Colors.white,
                     child: Image(
-                      image: AssetImage('assets/search.png'),
+                      image: AssetImage('images/search.png'),
                       width: 20,
                       height: 20,
                     ),
@@ -88,7 +91,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
                       height: 48,
                       width: 48,
                       child: CircleAvatar(radius: 14,
-                        backgroundImage: AssetImage('duoduo.jpg'),
+                        backgroundImage: AssetImage('images/duoduo.jpg'),
                       ),
                     )),
               )

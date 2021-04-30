@@ -7,7 +7,7 @@ class CusSearchBar extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset('assets/sousuo.png',width: 17,),
+        Image.asset('images/sousuo.png',width: 17,),
     Expanded(
       flex: 1,
       child: TextField(

@@ -23,7 +23,7 @@ class _TileRecommendState extends State<TileRecommend> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage('assets/duoduo.jpg'),
+                      backgroundImage: AssetImage('images/duoduo.jpg'),
                       radius: 20,
                     ),
                     SizedBox(
@@ -100,7 +100,7 @@ class _TileRecommendState extends State<TileRecommend> {
             Padding(
               padding: EdgeInsets.only(top: 4),
               child: Image(
-                image: AssetImage('assets/concert.jpg'),
+                image: AssetImage('images/concert.jpg'),
                 width: MediaQuery.of(context).size.width - 100,
                 height: 200,
                 fit: BoxFit.cover,
@@ -116,7 +116,7 @@ class _TileRecommendState extends State<TileRecommend> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Image(
-                            image: AssetImage('assets/tweet.png'),
+                            image: AssetImage('images/tweet.png'),
                             height: 30,
                             width: 30,
                           ),
@@ -124,7 +124,7 @@ class _TileRecommendState extends State<TileRecommend> {
                             width: 40,
                           ),
                           Image(
-                            image: AssetImage('assets/thumbs_up.png'),
+                            image: AssetImage('images/thumbs_up.png'),
                             height: 30,
                             width: 30,
                           ),
@@ -132,7 +132,7 @@ class _TileRecommendState extends State<TileRecommend> {
                             width: 40,
                           ),
                           Image(
-                            image: AssetImage('assets/comment.png'),
+                            image: AssetImage('images/comment.png'),
                             height: 30,
                             width: 30,
                           ),

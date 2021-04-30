@@ -141,7 +141,7 @@ class _MomentsPageState extends State<MomentsPage>
                 padding: EdgeInsets.fromLTRB(10, 8, 20, 0),
                 child: (CircleAvatar(
                   radius: 14.0,
-                  backgroundImage: AssetImage('assets/duoduo.jpg'),
+                  backgroundImage: AssetImage('images/duoduo.jpg'),
                 )),
               ),
             ]),

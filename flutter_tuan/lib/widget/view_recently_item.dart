@@ -15,7 +15,7 @@ class _ViewRecentlyItemState extends State<ViewRecentlyItem> {
           width: 60,
           decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8)),
               image: DecorationImage(
-                  image: AssetImage('assets/duoduo.jpg'), fit: BoxFit.cover)),
+                  image: AssetImage('images/duoduo.jpg'), fit: BoxFit.cover)),
         ),
         Text('多多'),
         Text('测试版'),

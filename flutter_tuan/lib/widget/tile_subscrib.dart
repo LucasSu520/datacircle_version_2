@@ -27,7 +27,7 @@ class _TileSubscribeState extends State<TileSubscribe> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         image: DecorationImage(
-                            image: AssetImage('assets/duoduo.jpg'),
+                            image: AssetImage('images/duoduo.jpg'),
                             fit: BoxFit.cover)),
                   ),
                   SizedBox(
@@ -70,7 +70,7 @@ class _TileSubscribeState extends State<TileSubscribe> {
           Padding(
             padding: EdgeInsets.only(top: 4),
             child: Image(
-              image: AssetImage('assets/concert.jpg'),
+              image: AssetImage('images/concert.jpg'),
               width: MediaQuery.of(context).size.width - 100,
               height: 200,
               fit: BoxFit.cover,
@@ -86,7 +86,7 @@ class _TileSubscribeState extends State<TileSubscribe> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image(
-                          image: AssetImage('assets/tweet.png'),
+                          image: AssetImage('images/tweet.png'),
                           height: 30,
                           width: 30,
                         ),
@@ -94,7 +94,7 @@ class _TileSubscribeState extends State<TileSubscribe> {
                           width: 40,
                         ),
                         Image(
-                          image: AssetImage('assets/thumbs_up.png'),
+                          image: AssetImage('images/thumbs_up.png'),
                           height: 30,
                           width: 30,
                         ),
@@ -102,7 +102,7 @@ class _TileSubscribeState extends State<TileSubscribe> {
                           width: 40,
                         ),
                         Image(
-                          image: AssetImage('assets/comment.png'),
+                          image: AssetImage('images/comment.png'),
                           height: 30,
                           width: 30,
                         ),

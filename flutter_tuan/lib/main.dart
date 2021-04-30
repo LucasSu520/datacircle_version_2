@@ -15,12 +15,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        fontFamily: 'PingFang',
         appBarTheme: AppBarTheme(
           elevation: 0.0,
           color: Colors.white,
           brightness: Brightness.light,
         ),
       ),
+      // darkTheme: ThemeData(
+      //   brightness: Brightness.dark,
+      // ),
+      // themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       home: TabNavigator(),
     );

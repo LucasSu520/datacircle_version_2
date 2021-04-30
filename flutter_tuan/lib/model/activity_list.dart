@@ -4,7 +4,7 @@ class ActivityList{
 
   static List<Activity> recommendedActivityList=<Activity>[
     Activity(
-      imagePath:'assets/skate.jpg' ,
+      imagePath:'images/skate.jpg' ,
       titleTxt: '学习滑板（初级）',
       subTxt: '厦门大学科艺教学楼下',
       dist: 1.2,
@@ -15,7 +15,7 @@ class ActivityList{
       official: true
     ),
     Activity(
-      imagePath: 'assets/party.jpg',
+      imagePath: 'images/party.jpg',
       titleTxt: 'COS party',
       subTxt: '厦门Mojito',
       dist: 2.3,
@@ -26,7 +26,7 @@ class ActivityList{
       official: true,
     ),
     Activity(
-      imagePath: 'assets/wolfKill.jpeg',
+      imagePath: 'images/wolfKill.jpeg',
       titleTxt: '狼人杀（高级）',
       subTxt: '富万邦麦当劳',
       dist: 1.6,
@@ -36,7 +36,7 @@ class ActivityList{
       group: '桌游'
     ),
     Activity(
-      imagePath: 'assets/football.jpg',
+      imagePath: 'images/football.jpg',
       titleTxt: '足球',
       subTxt: '厦门大学演武场',
       dist: 1.8,
@@ -49,7 +49,7 @@ class ActivityList{
 
   static List<Activity> upcomingPageActivityList=<Activity>[
     Activity(
-        imagePath:'assets/concert.jpg' ,
+        imagePath:'images/concert.jpg' ,
         titleTxt: '音乐会',
         subTxt: '厦门大学科艺中心',
         dist: 1.2,
@@ -60,7 +60,7 @@ class ActivityList{
         official: true
     ),
     Activity(
-        imagePath:'assets/lunZiMa.jpg' ,
+        imagePath:'images/lunZiMa.jpg' ,
         titleTxt: 'LOL线下比赛',
         subTxt: '华侨博物馆欢乐园网咖',
         dist: 1.2,
@@ -71,7 +71,7 @@ class ActivityList{
         official: true
     ),
     Activity(
-        imagePath:'assets/lunZiMa.jpg' ,
+        imagePath:'images/lunZiMa.jpg' ,
         titleTxt: '美食',
         subTxt: '厦门大学南光食堂',
         dist: 1.2,
@@ -82,7 +82,7 @@ class ActivityList{
         official: false
     ),
     Activity(
-        imagePath:'assets/MeetingRoom.jpg' ,
+        imagePath:'images/MeetingRoom.jpg' ,
         titleTxt: '电脑展示',
         subTxt: '厦门大学南强二',
         dist: 1.2,
@@ -96,7 +96,7 @@ class ActivityList{
 
   static List<Activity> rankPageActivityList=<Activity>[
     Activity(
-        imagePath:'assets/concert.jpg' ,
+        imagePath:'images/concert.jpg' ,
         titleTxt: '音乐会',
         subTxt: '厦门大学科艺中心',
         dist: 1.2,
@@ -107,7 +107,7 @@ class ActivityList{
         official: true
     ),
     Activity(
-        imagePath:'assets/lunZiMa.jpg' ,
+        imagePath:'images/lunZiMa.jpg' ,
         titleTxt: 'LOL线下比赛',
         subTxt: '华侨博物馆欢乐园网咖',
         dist: 1.2,
@@ -118,7 +118,7 @@ class ActivityList{
         official: true
     ),
     Activity(
-        imagePath:'assets/lunZiMa.jpg' ,
+        imagePath:'images/lunZiMa.jpg' ,
         titleTxt: '美食',
         subTxt: '厦门大学南光食堂',
         dist: 1.2,
@@ -129,7 +129,7 @@ class ActivityList{
         official: false
     ),
     Activity(
-        imagePath:'assets/MeetingRoom.jpg' ,
+        imagePath:'images/MeetingRoom.jpg' ,
         titleTxt: '电脑展示',
         subTxt: '厦门大学南强二',
         dist: 1.2,

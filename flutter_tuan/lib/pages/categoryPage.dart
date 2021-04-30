@@ -32,7 +32,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
             CircleAvatar(
               radius: 14,
-              backgroundImage: AssetImage('assets/duoduo.jpg'),
+              backgroundImage: AssetImage('images/duoduo.jpg'),
             )
           ]),
           SizedBox(
@@ -57,7 +57,7 @@ class _CategoryPageState extends State<CategoryPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         image: DecorationImage(
-                            image: AssetImage('assets/lunZiMa.jpg'),
+                            image: AssetImage('images/lunZiMa.jpg'),
                             fit: BoxFit.cover)),
                   ),
                 );
@@ -86,25 +86,25 @@ class _CategoryPageState extends State<CategoryPage> {
   void initState() {
     this.localNavList = [
       CommonModel(
-          image: 'assets/football.jpg', title: 'LOL线下比赛', isOfficial: true),
+          image: 'images/football.jpg', title: 'LOL线下比赛', isOfficial: true),
       CommonModel(
-          image: 'assets/MeetingRoom.jpg', title: '图书馆圆桌会议', isOfficial: false),
+          image: 'images/MeetingRoom.jpg', title: '图书馆圆桌会议', isOfficial: false),
       CommonModel(
-          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
       CommonModel(
-          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
       CommonModel(
-          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
       CommonModel(
-          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
       CommonModel(
-          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
       CommonModel(
-          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
       CommonModel(
-          image: 'assets/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
+          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
       CommonModel(
-          image: 'assets/party.jpg', title: '毕业party', isOfficial: true),
+          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
     ];
     super.initState();
   }

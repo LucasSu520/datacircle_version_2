@@ -72,7 +72,7 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/duoduo.jpg'),
+                  backgroundImage: AssetImage('images/duoduo.jpg'),
                   radius: 22,
                 ),
                 SizedBox(

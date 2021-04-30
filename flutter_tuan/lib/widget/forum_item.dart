@@ -17,7 +17,7 @@ class _ForumItemState extends State<ForumItem> {
               Radius.circular(6),
             ),
             image: DecorationImage(
-                image: AssetImage('assets/duoduo.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('images/duoduo.jpg'), fit: BoxFit.cover)),
       ),
       title: Text('香肠派对'),
       subtitle: Row(

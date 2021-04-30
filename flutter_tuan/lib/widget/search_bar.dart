@@ -82,7 +82,7 @@ class _SearchBarState extends State<SearchBar> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(
-            'assets/sousuo.png',
+            'images/sousuo.png',
             width: 17,
           ),
           Expanded(
@@ -109,7 +109,7 @@ class _SearchBarState extends State<SearchBar> {
           !showClear
               ? _wrapTap(
                   Image.asset(
-                    'assets/yuyin.png',
+                    'images/yuyin.png',
                     width: 17,
                   ),
                   widget.speakClick)

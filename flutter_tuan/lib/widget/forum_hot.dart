@@ -36,7 +36,7 @@ class _ForumHotState extends State<ForumHot> {
               alignment: Alignment.bottomCenter,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/lunZiMa.jpg'),
+                      image: AssetImage('images/lunZiMa.jpg'),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.all(
                     Radius.circular(14),

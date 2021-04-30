@@ -40,7 +40,7 @@ class _ForumSubscribState extends State<ForumSubscrib> {
                         Radius.circular(6),
                       ),
                       image: DecorationImage(
-                          image: AssetImage('assets/duoduo.jpg'),
+                          image: AssetImage('images/duoduo.jpg'),
                           fit: BoxFit.cover)),
                 ),
                 title: Text('原神'),

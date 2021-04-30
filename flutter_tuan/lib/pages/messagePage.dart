@@ -38,7 +38,7 @@ class _MessagePageState extends State<MessagePage>
           Padding(padding: EdgeInsets.only(left: 10),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/duoduo.jpg',),radius: 24,
+                backgroundImage: AssetImage('images/duoduo.jpg',),radius: 24,
               ),
               title: Text('钢琴吧有新消息'),
               subtitle: Column(
@@ -64,7 +64,7 @@ class _MessagePageState extends State<MessagePage>
           Padding(padding: EdgeInsets.only(left: 10),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/duoduo.jpg',),radius: 24,
+                backgroundImage: AssetImage('images/duoduo.jpg',),radius: 24,
               ),
               title: Text('钢琴吧有新消息'),
               subtitle: Column(
@@ -90,7 +90,7 @@ class _MessagePageState extends State<MessagePage>
           Padding(padding: EdgeInsets.only(left: 10),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/duoduo.jpg',),radius: 24,
+                backgroundImage: AssetImage('images/duoduo.jpg',),radius: 24,
               ),
               title: Text('钢琴吧有新消息'),
               subtitle: Column(
@@ -116,7 +116,7 @@ class _MessagePageState extends State<MessagePage>
           Padding(padding: EdgeInsets.only(left: 10),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/duoduo.jpg',),radius: 24,
+                backgroundImage: AssetImage('images/duoduo.jpg',),radius: 24,
               ),
               title: Text('钢琴吧有新消息'),
               subtitle: Column(
@@ -170,7 +170,7 @@ class _MessagePageState extends State<MessagePage>
                 Padding(
                   padding: EdgeInsets.only(left: 8),
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/duoduo.jpg'),
+                    backgroundImage: AssetImage('images/duoduo.jpg'),
                     radius: 14,
                   ),
                 ),
