@@ -10,6 +10,8 @@ class AppTheme {
   static const Color grey = Color(0xFF3A5160);
   static const Color dark_grey = Color(0xFF313A44);
 
+  static const Color transparent=Color(0xFFFFFF00);
+
   static const Color darkText = Color(0xFF253840);
   static const Color darkerText = Color(0xFF17262A);
   static const Color lightText = Color(0xFF4A6572);
@@ -17,7 +19,7 @@ class AppTheme {
   static const Color dismissibleBackground = Color(0xFF364A54);
   static const Color chipBackground = Color(0xFFEEF1F3);
   static const Color spacer = Color(0xFFF2F2F2);
-  static const String fontName = 'WorkSans';
+  static const String fontName = 'PingFang';
 
   static const TextTheme textTheme = TextTheme(
     headline4: display1,
@@ -70,9 +72,22 @@ class AppTheme {
     color: darkText,
   );
 
+  static const TextStyle SelectedTabText=TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 20.0,
+    letterSpacing: 0.2,
+    color:darkerText
+  );
+
+  static const TextStyle UnselectedTabText=TextStyle(
+    fontWeight: FontWeight.w200,
+    fontSize: 15.0,
+    color: grey
+  );
+
   static const TextStyle body1 = TextStyle( // body2 -> body1
     fontFamily: fontName,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w200,
     fontSize: 16,
     letterSpacing: -0.05,
     color: darkText,
@@ -80,7 +95,7 @@ class AppTheme {
 
   static const TextStyle caption = TextStyle( // Caption -> caption
     fontFamily: fontName,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w200,
     fontSize: 12,
     letterSpacing: 0.2,
     color: lightText, // was lightText
@@ -118,7 +133,7 @@ class AppTheme {
   }
 
   static TextTheme _buildTextTheme(TextTheme base) {
-    const String fontName = 'WorkSans';
+    const String fontName = 'PingFang';
     return base.copyWith(
       headline1: base.headline1.copyWith(fontFamily: fontName),
       headline2: base.headline2.copyWith(fontFamily: fontName),
@@ -133,6 +148,15 @@ class AppTheme {
       subtitle1: base.subtitle1.copyWith(fontFamily: fontName),
       subtitle2: base.subtitle2.copyWith(fontFamily: fontName),
       overline: base.overline.copyWith(fontFamily: fontName),
+    );
+  }
+
+  static AppBarTheme buildWhiteBar(){
+    final AppBarTheme base=AppBarTheme();
+    return base.copyWith(
+      color:Colors.white,
+      elevation: 0.0,
+      brightness: Brightness.light,
     );
   }
 

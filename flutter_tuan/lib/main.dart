@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/app_theme.dart';
 import 'package:flutter_tuan/navigator/tab_navigator.dart';
 import 'package:flutter/services.dart';
 
@@ -6,7 +7,9 @@ void main() {
   runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.light));
+      statusBarBrightness: Brightness.light,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarIconBrightness: Brightness.dark));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,32 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'PingFang',
-        appBarTheme: AppBarTheme(
-          elevation: 0.0,
-          color: Colors.white,
-          brightness: Brightness.light,
-        ),
+      theme:ThemeData(
+        primaryColor: Colors.white,
+        textTheme: AppTheme.textTheme,
+        platform: TargetPlatform.iOS,
+        appBarTheme: AppTheme.buildWhiteBar(),
       ),
-      // darkTheme: ThemeData(
-      //   brightness: Brightness.dark,
-      // ),
-      // themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       home: TabNavigator(),
     );
   }
 }
 
-class HexColor extends Color {
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll('#', '');
-    if (hexColor.length == 6) {
-      hexColor = 'FF' + hexColor;
-    }
-    return int.parse(hexColor, radix: 16);
-  }
-}
