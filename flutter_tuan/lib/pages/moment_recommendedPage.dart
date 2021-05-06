@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/widget/tile_recommend.dart';
-import 'package:flutter_tuan/widget/view_recently.dart';
+import 'package:flutter_tuan/component/tile_recommend.dart';
+import 'package:flutter_tuan/component/view_recently.dart';
 
 class MomentRecommendedPage extends StatefulWidget {
   @override

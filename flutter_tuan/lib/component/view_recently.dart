@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/widget/view_recently_item.dart';
+import 'package:flutter_tuan/component/view_recently_item.dart';
 
 class ViewRecently extends StatefulWidget {
   @override

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/model/common_model.dart';
-import 'package:flutter_tuan/widget/local_nav.dart';
-import 'package:flutter_tuan/widget/search_bar.dart';
-import 'package:flutter_tuan/widget/square_swiper_pagination.dart';
+import 'package:flutter_tuan/component/local_nav.dart';
+import 'package:flutter_tuan/component/search_bar.dart';
+import 'package:flutter_tuan/component/square_swiper_pagination.dart';
 
 const DEFAULT_TEXT = '用户 | 活动 | 地点';
 
@@ -31,7 +32,7 @@ class _CategoryPageState extends State<CategoryPage> {
               width: 6,
             ),
             CircleAvatar(
-              radius: 14,
+              radius: RadiusSizeConstants.circleAvatarSize,
               backgroundImage: AssetImage('images/duoduo.jpg'),
             )
           ]),
@@ -84,28 +85,9 @@ class _CategoryPageState extends State<CategoryPage> {
 
   @override
   void initState() {
-    this.localNavList = [
-      CommonModel(
-          image: 'images/football.jpg', title: 'LOL线下比赛', isOfficial: true),
-      CommonModel(
-          image: 'images/MeetingRoom.jpg', title: '图书馆圆桌会议', isOfficial: false),
-      CommonModel(
-          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
-      CommonModel(
-          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
-      CommonModel(
-          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
-      CommonModel(
-          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
-      CommonModel(
-          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
-      CommonModel(
-          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
-      CommonModel(
-          image: 'images/wolfKill.jpeg', title: '狼人杀线下组局', isOfficial: true),
-      CommonModel(
-          image: 'images/party.jpg', title: '毕业party', isOfficial: true),
-    ];
+
+    //TODO add the list to the localNacList
+    this.localNavList = new List();
     super.initState();
   }
 }

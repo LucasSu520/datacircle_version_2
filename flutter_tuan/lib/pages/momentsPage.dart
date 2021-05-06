@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/pages/forumPage.dart';
 import 'package:flutter_tuan/pages/moment_recommendedPage.dart';
-import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
-import 'package:flutter_tuan/widget/tile_subscrib.dart';
+import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
+import 'package:flutter_tuan/component/tile_subscrib.dart';
 
 class MomentsPage extends StatefulWidget {
   @override

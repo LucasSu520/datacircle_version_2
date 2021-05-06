@@ -1,7 +1,7 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/pages/categoryPage.dart';
-import 'package:flutter_tuan/widget/ExpandedText.dart';
+import 'package:flutter_tuan/component/ExpandedText.dart';
 
 class TileSubscribe extends StatefulWidget {
   @override

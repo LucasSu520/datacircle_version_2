@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/widget/forum_hot.dart';
-import 'package:flutter_tuan/widget/forum_item.dart';
-import 'package:flutter_tuan/widget/forum_subscrib.dart';
+import 'package:flutter_tuan/component/forum_hot.dart';
+import 'package:flutter_tuan/component/forum_item.dart';
+import 'package:flutter_tuan/component/forum_subscrib.dart';
+
 
 class ForumPage extends StatefulWidget {
   @override

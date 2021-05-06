@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/model/common_model.dart';
-import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
+import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 
 class MessagePage extends StatefulWidget {
   @override

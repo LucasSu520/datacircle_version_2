@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/widget/roundUnderlineTabIndicator.dart';
+import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 
 class MyPage extends StatefulWidget {
   @override
