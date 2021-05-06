@@ -6,18 +6,21 @@ import 'package:flutter_tuan/pages/myPage.dart';
 import 'package:flutter_tuan/pages/tuanPage.dart';
 
 class TabNavigator extends StatefulWidget {
+  Key key;
+  TabNavigator({this.key});
   @override
   _TabNavigatorState createState() => _TabNavigatorState();
 }
 
 class _TabNavigatorState extends State<TabNavigator> {
 
-  final List<Widget> pages=[TuanPage(),CategoryPage(),MomentsPage(),MessagePage(),MyPage()];
+  List<Widget> pages=[];
   int _currentPage;
 
 
   @override
   void initState() {
+    pages=[TuanPage(),CategoryPage(),MomentsPage(),MessagePage(),MyPage()];
     this._currentPage=0;
     super.initState();
   }
