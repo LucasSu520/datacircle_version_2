@@ -10,9 +10,13 @@ class RecommendedPage extends StatefulWidget {
 }
 
 class _RecommendedPageState extends State<RecommendedPage>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin,AutomaticKeepAliveClientMixin {
   List<Activity> activityList;
   AnimationController animationController;
+
+
+  @override
+  bool get wantKeepAlive =>true;
 
   @override
   void initState() {

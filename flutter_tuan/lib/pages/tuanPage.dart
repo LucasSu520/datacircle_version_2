@@ -32,6 +32,8 @@ class _TuanPageState extends State<TuanPage>
     setState(() => {this.position = position});
   }
 
+
+
   @override
   bool get wantKeepAlive => true;
   final EdgeInsets _DefaultEdgeInsets = EdgeInsets.fromLTRB(10, 8, 10, 0);

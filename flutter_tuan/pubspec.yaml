@@ -74,6 +74,13 @@ flutter:
     - comment.png
     - thumbs_up.png
     - tweet.png
+    - bookmark.png
+    - friends.png
+    - moment.png
+    - order.png
+    - subscription.png
+    - scan.png
+    - favorite.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

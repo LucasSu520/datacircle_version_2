@@ -9,9 +9,13 @@ class RankPage extends StatefulWidget {
   RankPageState createState() => RankPageState();
 }
 
-class RankPageState extends State<RankPage> with TickerProviderStateMixin {
+class RankPageState extends State<RankPage> with TickerProviderStateMixin,AutomaticKeepAliveClientMixin{
   List<Activity> activityList;
   AnimationController animationController;
+
+
+  @override
+  bool get wantKeepAlive =>true;
 
   @override
   void initState() {

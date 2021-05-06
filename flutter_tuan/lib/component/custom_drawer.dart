@@ -1,18 +1,15 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight= MediaQuery.of(context).padding.top;
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
 
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.fromLTRB(10, statusBarHeight+8, 10, 0),
+        physics: NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.fromLTRB(10, statusBarHeight + 8, 10, 0),
         children: [
           Padding(
             padding: EdgeInsets.fromLTRB(15, 15, 30, 0),
@@ -38,7 +35,13 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 Expanded(
                   child: Align(
-                    child: Icon(Icons.scanner),
+                    child: Image(
+                      image: AssetImage(
+                        'icons/scan.png',
+                      ),
+                      width: 30,
+                      height: 30,
+                    ),
                     alignment: Alignment.topRight,
                   ),
                 )
@@ -48,35 +51,56 @@ class CustomDrawer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 6),
             child: ListTile(
-              leading: Icon(CupertinoIcons.captions_bubble),
+              leading: Image(
+                image: AssetImage('icons/moment.png'),
+                width: 30,
+                height: 30,
+              ),
               title: Text('动态'),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 6),
             child: ListTile(
-              leading: Icon(CupertinoIcons.heart_fill),
+              leading: Image(
+                image: AssetImage('icons/subscription.png'),
+                width: 30,
+                height: 30,
+              ),
               title: Text('关注'),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 6),
             child: ListTile(
-              leading: Icon(CupertinoIcons.person_2),
+              leading: Image(
+                image: AssetImage('icons/friends.png'),
+                width: 30,
+                height: 30,
+              ),
               title: Text('好友'),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 6),
             child: ListTile(
-              leading: Icon(CupertinoIcons.bookmark_fill),
+              leading: Image(
+                image: AssetImage('icons/favorite.png'),
+                width: 30,
+                height: 30,
+              ),
               title: Text("收藏"),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 6),
             child: ListTile(
-                leading: Icon(CupertinoIcons.calendar), title: Text('订单')),
+                leading: Image(
+                  image: AssetImage('icons/order.png'),
+                  width: 30,
+                  height: 30,
+                ),
+                title: Text('订单')),
           ),
           Divider(
             height: 8,
@@ -116,7 +140,9 @@ class CustomDrawer extends StatelessWidget {
               title: Text('当前版本 1.0.0'),
             ),
           ),
-          Divider(height: 3,),
+          Divider(
+            height: 3,
+          ),
           Padding(
             padding: EdgeInsets.only(top: 6),
             child: ListTile(
