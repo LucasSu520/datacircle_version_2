@@ -10,10 +10,13 @@ class UpComingPage extends StatefulWidget {
   _UpComingPageState createState() => _UpComingPageState();
 }
 
-class _UpComingPageState extends State<UpComingPage> with TickerProviderStateMixin {
+class _UpComingPageState extends State<UpComingPage> with TickerProviderStateMixin,AutomaticKeepAliveClientMixin{
   List<Activity> activityList;
   AnimationController animationController;
 
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {

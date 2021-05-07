@@ -3,6 +3,9 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
+import 'package:flutter_tuan/constants/radius_size_constant.dart';
+
+import '../main.dart';
 
 class MyPage extends StatefulWidget {
   @override
@@ -71,9 +74,17 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage('images/duoduo.jpg'),
-                  radius: 22,
+                GestureDetector(
+                  onTap: () {
+                    MyApp.scaffoldKey.currentState.openDrawer();
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 5),
+                    child: CircleAvatar(
+                      radius: RadiusSizeConstants.circleAvatarSize,
+                      backgroundImage: AssetImage('images/duoduo.jpg'),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   width: 8,

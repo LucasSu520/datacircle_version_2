@@ -38,6 +38,7 @@ class _RecommendedPageState extends State<RecommendedPage>
       color: AppTheme.buildLightTheme().backgroundColor,
       child: ListView.builder(
         itemCount: activityList.length,
+        physics: ClampingScrollPhysics(),
         padding: EdgeInsets.only(top: 8),
         scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tuan/model/common_model.dart';
 
 class LocalNav extends StatelessWidget {
-  final List<CommonModel> localNavList;
+  final CommonListModel localNavList;
   final String title;
   LocalNav({Key key, @required this.localNavList, @required this.title})
       : super(key: key);
@@ -20,7 +20,7 @@ class LocalNav extends StatelessWidget {
   _items(BuildContext context) {
     if (localNavList == null) return null;
     List<Widget> items = [];
-    localNavList.forEach((model) {
+    localNavList.data.forEach((model) {
       items.add(_item(context, model));
     });
     return ListView(
