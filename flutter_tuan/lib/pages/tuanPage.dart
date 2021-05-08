@@ -11,49 +11,37 @@ import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 import 'RankPage.dart';
 
 class TuanPage extends StatefulWidget {
-  Key key;
-  TuanPage({this.key});
   @override
   _TuanPageState createState() => _TuanPageState();
 }
 
-class _TuanPageState extends State<TuanPage>
-    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
   List<Tab> _tabBarList;
   List<Widget> _tabBarViewList;
   TabController mController;
 
   @override
-  bool get wantKeepAlive => true;
-  final EdgeInsets _DefaultEdgeInsets = EdgeInsets.fromLTRB(10, 8, 10, 0);
-
-  @override
   Widget build(BuildContext context) {
-
-    ScrollPhysics mScrollPhysics=new ScrollPhysics();
-    mScrollPhysics.carriedMomentum(200);
-
-
     return Theme(
       data: AppTheme.buildLightTheme(),
       child: Material(
-        color: Colors.white,
+        // color: AppTheme.white,
         child: Column(
           children: [
             Padding(
-              padding: this._DefaultEdgeInsets,
+              padding: kDefaultTabBarPadding,
               child: Row(
                 children: [
                   Expanded(
-                    child: TabBar(physics: BouncingScrollPhysics(),
+                    child: TabBar(
+                      physics: CustomPhysics(),
                       isScrollable: true,
                       indicatorSize: TabBarIndicatorSize.label,
                       tabs: this._tabBarList,
                       controller: mController,
-                      indicatorColor: Colors.lightBlue,
                       indicator: RoundUnderlineTabIndicator(
-                          borderSide:
-                              BorderSide(width: 4, color: Colors.lightBlue)),
+                          borderSide: BorderSide(
+                              width: 4, color: Theme.of(context).accentColor)),
                       labelStyle: AppTheme.SelectedTabText,
                       labelColor: Colors.black,
                       // isScrollable: true,
@@ -104,7 +92,8 @@ class _TuanPageState extends State<TuanPage>
               ),
             ),
             Expanded(
-              child: TabBarView(physics: CustomPhysics(),
+              child: TabBarView(
+                physics: CustomPhysics(),
                 controller: this.mController,
                 children: this._tabBarViewList,
               ),
@@ -149,10 +138,8 @@ class _TuanPageState extends State<TuanPage>
   }
 }
 
-class CustomPhysics extends ScrollPhysics{
-
-  const CustomPhysics({ScrollPhysics parent})
-      : super(parent: parent);
+class CustomPhysics extends ScrollPhysics {
+  const CustomPhysics({ScrollPhysics parent}) : super(parent: parent);
 
   @override
   CustomPhysics applyTo(ScrollPhysics ancestor) {
@@ -161,7 +148,6 @@ class CustomPhysics extends ScrollPhysics{
 
   @override
   SpringDescription get spring {
-    return SpringDescription(mass: 80, stiffness: 100, damping: 1);
+    return SpringDescription(mass: 80, stiffness: 150, damping: 0.8);
   }
-
 }

@@ -5,7 +5,6 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
-
     return Drawer(
       child: ListView(
         physics: NeverScrollableScrollPhysics(),

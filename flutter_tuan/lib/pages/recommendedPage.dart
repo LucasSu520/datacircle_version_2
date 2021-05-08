@@ -10,13 +10,12 @@ class RecommendedPage extends StatefulWidget {
 }
 
 class _RecommendedPageState extends State<RecommendedPage>
-    with TickerProviderStateMixin,AutomaticKeepAliveClientMixin {
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   List<Activity> activityList;
   AnimationController animationController;
 
-
   @override
-  bool get wantKeepAlive =>true;
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -34,6 +33,7 @@ class _RecommendedPageState extends State<RecommendedPage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       color: AppTheme.buildLightTheme().backgroundColor,
       child: ListView.builder(

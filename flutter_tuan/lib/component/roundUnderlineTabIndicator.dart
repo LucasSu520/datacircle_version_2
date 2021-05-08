@@ -12,7 +12,7 @@ class RoundUnderlineTabIndicator extends Decoration {
   ///
   /// The [borderSide] and [insets] arguments must not be null.
   const RoundUnderlineTabIndicator({
-    this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
+    this.borderSide = const BorderSide(width: 4.0, color: Colors.white),
     this.insets = EdgeInsets.zero,
   })  : assert(borderSide != null),
         assert(insets != null);
@@ -89,10 +89,13 @@ class _UnderlinePainter extends BoxPainter {
     assert(configuration.size != null);
     final Rect rect = offset & configuration.size;
     final TextDirection textDirection = configuration.textDirection;
+
     final Rect indicator =
-        _indicatorRectFor(rect, textDirection).deflate(borderSide.width / 2.0);
+        _indicatorRectFor(rect, textDirection).deflate(borderSide.width/2);
+
 //    final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.square;
     // 改为圆角
+
     final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.round;
     canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
   }
@@ -152,7 +155,7 @@ class VgTab extends StatelessWidget {
       height = _kTextAndIconTabHeight;
       label = Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             child: icon,
