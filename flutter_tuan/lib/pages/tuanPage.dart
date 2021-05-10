@@ -21,6 +21,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
   List<Tab> _tabBarList;
   List<Widget> _tabBarViewList;
   TabController mController;
+  TabBar mTabBar;
 
   @override
   Widget build(BuildContext context) {

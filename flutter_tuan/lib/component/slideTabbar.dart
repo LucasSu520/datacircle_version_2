@@ -1030,11 +1030,8 @@ class _IndicatorPainter extends CustomPainter {
     final double index = controller.index.toDouble();
     final double value = controller.animation.value;
     final bool ltr = index > value;
-    print(size==null);
-    print(index==null);
-    print(value==null);
     final double dotOffset=ltr ? (index -value).toDouble():(value-index).toDouble();
-    final RRect result=_clacBounds(size.height,index.floor(), dotOffset*2);
+    final RRect result=_calcBounds(size,value.floor(), dotOffset*2);
     canvas.drawRRect(result, activeDotPaint);
   }
 
@@ -1048,17 +1045,15 @@ class _IndicatorPainter extends CustomPainter {
         || _currentTextDirection != old._currentTextDirection;
   }
 
-  RRect _clacBounds(double height,int index,double dotOffset) {
-    final int xPos=index;
-    final yPos=height/2;
+  RRect _calcBounds(Size size,int index,double dotOffset) {
+    final double xPos=index*(this.indicatorPadding.horizontal+size.width);
+    final yPos=size.height/2;
     double left=xPos.toDouble();
-    double dotWidth=tabKeys[index].currentContext.size.width;
-    double dotHeight=tabKeys[index].currentContext.size.height;
-    double right=xPos+dotWidth+(dotOffset*dotWidth);
+    double right=xPos+size.width+(dotOffset*size.width);
     if(dotOffset>1) {
-      right = xPos + dotWidth + (1 * dotWidth);
-      left = xPos + (dotWidth * (dotOffset - 1));
+      right = xPos + size.width + (1 * size.width);
+      left = xPos + (size.width * (dotOffset - 1));
     }
-      return RRect.fromLTRBR(left,yPos-dotHeight, right, yPos+dotHeight,Radius.zero );
+      return RRect.fromLTRBR(left,yPos-size.height, right, yPos+size.height,Radius.zero );
   }
 }
