@@ -3,11 +3,13 @@ import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter_tuan/app_theme.dart';
+import 'package:flutter_tuan/component/slideTabbar.dart';
 import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/main.dart';
 import 'package:flutter_tuan/pages/recommendedPage.dart';
 import 'package:flutter_tuan/pages/upcomingPage.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'RankPage.dart';
 
 class TuanPage extends StatefulWidget {
@@ -33,19 +35,16 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
               child: Row(
                 children: [
                   Expanded(
-                    child: TabBar(
+                    child: CustomTabBar(
                       physics: CustomPhysics(),
                       isScrollable: true,
                       indicatorSize: TabBarIndicatorSize.label,
                       tabs: this._tabBarList,
                       controller: mController,
-                      indicator: RoundUnderlineTabIndicator(
-                          borderSide: BorderSide(
-                              width: 4, color: Theme.of(context).accentColor)),
-                      labelStyle: AppTheme.SelectedTabText,
-                      labelColor: Colors.black,
+                      indicator: RoundUnderlineTabIndicator(),
+                      labelStyle:TextStyle(fontSize: 18.0) ,
+                      unselectedLabelStyle: TextStyle(fontSize: 14.0),
                       // isScrollable: true,
-                      unselectedLabelStyle: AppTheme.UnselectedTabText,
                     ),
                   ),
                   Padding(
@@ -124,6 +123,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
     ];
     this.mController = new TabController(
         initialIndex: 0, length: this._tabBarList.length, vsync: this);
+
     super.initState();
   }
 

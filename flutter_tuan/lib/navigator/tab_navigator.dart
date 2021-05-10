@@ -48,6 +48,7 @@ class _TabNavigatorState extends State<TabNavigator> {
         currentIndex: _currentPage,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: 14,
+        selectedItemColor: Theme.of(context).accentColor,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: '团'),
           BottomNavigationBarItem(icon: Icon(Icons.category),label: '分类'),

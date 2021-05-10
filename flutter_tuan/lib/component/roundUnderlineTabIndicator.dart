@@ -87,18 +87,35 @@ class _UnderlinePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
+    final dotOffset =offset.dx-offset.dx.toInt();
+
     final Rect rect = offset & configuration.size;
     final TextDirection textDirection = configuration.textDirection;
 
     final Rect indicator =
         _indicatorRectFor(rect, textDirection).deflate(borderSide.width/2);
 
+    final RRect X=_calcBounce(dotOffset, 1, offset.dx.toDouble(), 2);
 //    final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.square;
     // 改为圆角
 
     final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.round;
-    canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
+    canvas.drawRRect(X, paint);
   }
+}
+
+RRect _calcBounce(double dotOffset,double canvasHeight,double x,double width){
+  final xPos=x;
+  final yPos=canvasHeight/2;
+  double left=xPos;
+   double right=xPos+dotOffset*(width);
+  if(dotOffset>1){
+    right=xPos+1*(width);
+    left=xPos+width*(dotOffset-1);
+  }
+
+
+  return RRect.fromLTRBAndCorners(left, 1, right, 1);
 }
 
 class VgTab extends StatelessWidget {
@@ -139,9 +156,6 @@ class VgTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterial(context));
-
-
-
 
     double height;
     Widget label;
