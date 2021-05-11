@@ -12,7 +12,7 @@ class RoundUnderlineTabIndicator extends Decoration {
   ///
   /// The [borderSide] and [insets] arguments must not be null.
   const RoundUnderlineTabIndicator({
-    this.borderSide = const BorderSide(width: 4.0, color: Colors.white),
+    this.borderSide = const BorderSide(width: 3.0, color: Colors.blue),
     this.insets = EdgeInsets.zero,
   })  : assert(borderSide != null),
         assert(insets != null);
@@ -76,7 +76,7 @@ class _UnderlinePainter extends BoxPainter {
 //      borderSide.width,
 //    );
     //希望的宽度
-    double wantWidth = 25;
+    double wantWidth = 30;
     //取中间坐标
     double cw = (indicator.left + indicator.right) / 2;
     return Rect.fromLTWH(cw - wantWidth / 2,
@@ -87,35 +87,15 @@ class _UnderlinePainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration != null);
     assert(configuration.size != null);
-    final dotOffset =offset.dx-offset.dx.toInt();
-
     final Rect rect = offset & configuration.size;
     final TextDirection textDirection = configuration.textDirection;
-
     final Rect indicator =
-        _indicatorRectFor(rect, textDirection).deflate(borderSide.width/2);
-
-    final RRect X=_calcBounce(dotOffset, 1, offset.dx.toDouble(), 2);
+    _indicatorRectFor(rect, textDirection).deflate(borderSide.width / 2.0);
 //    final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.square;
     // 改为圆角
-
     final Paint paint = borderSide.toPaint()..strokeCap = StrokeCap.round;
-    canvas.drawRRect(X, paint);
+    canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
   }
-}
-
-RRect _calcBounce(double dotOffset,double canvasHeight,double x,double width){
-  final xPos=x;
-  final yPos=canvasHeight/2;
-  double left=xPos;
-   double right=xPos+dotOffset*(width);
-  if(dotOffset>1){
-    right=xPos+1*(width);
-    left=xPos+width*(dotOffset-1);
-  }
-
-
-  return RRect.fromLTRBAndCorners(left, 1, right, 1);
 }
 
 class VgTab extends StatelessWidget {
@@ -157,6 +137,9 @@ class VgTab extends StatelessWidget {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterial(context));
 
+
+
+
     double height;
     Widget label;
     if (icon == null) {
@@ -169,7 +152,7 @@ class VgTab extends StatelessWidget {
       height = _kTextAndIconTabHeight;
       label = Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             child: icon,
@@ -200,5 +183,3 @@ class VgTab extends StatelessWidget {
         .add(DiagnosticsProperty<Widget>('icon', icon, defaultValue: null));
   }
 }
-
-
