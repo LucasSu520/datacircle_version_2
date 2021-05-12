@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    return MaterialApp(
+    return Theme(data:AppTheme.buildLightTheme() ,child: MaterialApp(
       theme:AppTheme.buildLightTheme(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         key: scaffoldKey,
         body: TabNavigator(),
       ),
-    );
+    ),);
   }
 }
 

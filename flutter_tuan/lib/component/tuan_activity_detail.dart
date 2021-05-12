@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/app_theme.dart';
+import 'package:flutter_tuan/model/activity.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
-
-import 'activity.dart';
 
 class ActivityListView extends StatelessWidget {
   const ActivityListView(
       {Key key,
-      this.activity,
-      this.animationController,
-      this.animation,
-      this.callback})
+        this.activity,
+        this.animationController,
+        this.animation,
+        this.callback})
       : super(key: key);
 
   final VoidCallback callback;
@@ -41,7 +40,7 @@ class ActivityListView extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(16.0)),
+                        const BorderRadius.all(Radius.circular(16.0)),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.6),
@@ -51,7 +50,7 @@ class ActivityListView extends StatelessWidget {
                         ]),
                     child: ClipRRect(
                       borderRadius:
-                          const BorderRadius.all(Radius.circular(16.0)),
+                      const BorderRadius.all(Radius.circular(16.0)),
                       child: Stack(
                         children: <Widget>[
                           Column(
@@ -65,106 +64,104 @@ class ActivityListView extends StatelessWidget {
                               ),
                               Container(
                                 color:
-                                    AppTheme.buildLightTheme().backgroundColor,
+                                AppTheme.buildLightTheme().backgroundColor,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Expanded(
                                         child: Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 16, top: 8, bottom: 8),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              activity.titleTxt,
-                                              textAlign: TextAlign.left,
-
-                                              //TODO custom the textstyle
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 22,
-                                              ),
-                                            ),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 16, top: 8, bottom: 8),
+                                            child: Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.start,
+                                              MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Text(
-                                                  activity.subTxt,
+                                                  activity.titleTxt,
+                                                  textAlign: TextAlign.left,
                                                   style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.grey
-                                                        .withOpacity(0.8),
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 22,
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  width: 4,
-                                                ),
-                                                Icon(
-                                                  FontAwesomeIcons.mapMarkedAlt,
-                                                  size: 12,
-                                                  color:
+                                                Row(
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    Text(
+                                                      activity.subTxt,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.grey
+                                                            .withOpacity(0.8),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 4,
+                                                    ),
+                                                    Icon(
+                                                      FontAwesomeIcons.mapMarkedAlt,
+                                                      size: 12,
+                                                      color:
                                                       AppTheme.buildLightTheme()
                                                           .primaryColor,
-                                                ),
-                                                const SizedBox(
-                                                  width: 4,
-                                                ),
-                                                Expanded(
-                                                  child: Text(
-                                                    '${activity.dist.toStringAsFixed(1)} km to city',
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: Colors.grey
-                                                          .withOpacity(0.8),
                                                     ),
-                                                  ),
-                                                )
+                                                    const SizedBox(
+                                                      width: 4,
+                                                    ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        '${activity.dist.toStringAsFixed(1)} km to city',
+                                                        overflow:
+                                                        TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: Colors.grey
+                                                              .withOpacity(0.8),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                                Padding(
+                                                    padding: const EdgeInsets.only(
+                                                        top: 4),
+                                                    child: Row(children: <Widget>[
+                                                      SmoothStarRating(
+                                                        allowHalfRating: true,
+                                                        starCount: 5,
+                                                        rating: activity.rating,
+                                                        size: 20,
+                                                        color: AppTheme
+                                                            .buildLightTheme()
+                                                            .primaryColor,
+                                                      ),
+                                                      const SizedBox(width: 2),
+                                                      Text(
+                                                          '${activity.personNum}人'),
+                                                      const SizedBox(
+                                                        width: 2,
+                                                      ),
+                                                      Text('时间：${activity.time}')
+                                                    ])),
                                               ],
                                             ),
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 4),
-                                                child: Row(children: <Widget>[
-                                                  SmoothStarRating(
-                                                    allowHalfRating: true,
-                                                    starCount: 5,
-                                                    rating: activity.rating,
-                                                    size: 20,
-                                                    color: AppTheme
-                                                            .buildLightTheme()
-                                                        .primaryColor,
-                                                  ),
-                                                  const SizedBox(width: 2),
-                                                  Text(
-                                                      '${activity.personNum}人'),
-                                                  const SizedBox(
-                                                    width: 2,
-                                                  ),
-                                                  Text('时间：${activity.time}')
-                                                ])),
-                                          ],
-                                        ),
-                                      ),
-                                    )),
+                                          ),
+                                        )),
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           right: 16, top: 8),
                                       child: Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.end,
+                                        CrossAxisAlignment.end,
                                         children: [
                                           Text(
                                             '${activity.group}组',

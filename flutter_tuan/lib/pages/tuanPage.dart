@@ -3,13 +3,11 @@ import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter_tuan/app_theme.dart';
-import 'package:flutter_tuan/component/slideTabbar.dart';
 import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/main.dart';
 import 'package:flutter_tuan/pages/recommendedPage.dart';
 import 'package:flutter_tuan/pages/upcomingPage.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'RankPage.dart';
 
 class TuanPage extends StatefulWidget {
@@ -25,81 +23,65 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: AppTheme.buildLightTheme(),
-      child: Material(
-        // color: AppTheme.white,
-        child: Column(
-          children: [
-            Padding(
-              padding: kDefaultTabBarPadding,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: CustomTabBar(
-                      physics: CustomPhysics(),
-                      isScrollable: true,
-                      indicatorSize: TabBarIndicatorSize.label,
-                      tabs: this._tabBarList,
-                      controller: mController,
-                      indicator: RoundUnderlineTabIndicator(),
-                      labelStyle:TextStyle(fontSize: 18.0) ,
-                      unselectedLabelStyle: TextStyle(fontSize: 14.0),
-                      // isScrollable: true,
-                    ),
+    return Material(
+      // color: AppTheme.white,
+      child: Column(
+        children: [
+          Padding(
+            padding: kDefaultTabBarPadding,
+            child: Row(
+              children: [
+                Expanded(
+                  child: TabBar(
+                    physics: CustomPhysics(),
+                    isScrollable: true,
+                    tabs: this._tabBarList,
+                    indicator: RoundUnderlineTabIndicator(
+                        borderSide: BorderSide(
+                            width: 2.5, color: Theme.of(context).accentColor)),
+                    controller: mController,
+                    labelStyle: Theme.of(context).tabBarTheme.labelStyle,
+                    unselectedLabelStyle:
+                        Theme.of(context).tabBarTheme.unselectedLabelStyle,
+                    // isScrollable: true,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 3),
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.white,
-                                blurRadius: 15.0,
-                                spreadRadius: 15.0),
-                          ],
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10.0))),
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        backgroundColor: Colors.white,
-                        child: Icon(CupertinoIcons.search),
-                        // child: Image(
-                        //   image: AssetImage('images/search.png'),
-                        //   width: 20,
-                        //   height: 20,
-                        // ),
-                        elevation: 5.0,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      MyApp.scaffoldKey.currentState.openDrawer();
+                ),
+                Container(
+                  height: 40,
+                  width: 40,
+                  padding: EdgeInsets.all(5),
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      //TODO add the click navigator to the search page
                     },
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 5),
-                      child: CircleAvatar(
-                        radius: RadiusSizeConstants.circleAvatarSize,
-                        backgroundImage: AssetImage('images/duoduo.jpg'),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                    backgroundColor: Colors.white,
+                    child: Icon(CupertinoIcons.search),
+                    elevation: 5.0,
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    MyApp.scaffoldKey.currentState.openDrawer();
+                  },
+                  child: CircleAvatar(
+                    radius: RadiusSizeConstants.circleAvatarSize,
+                    backgroundImage: AssetImage('images/duoduo.jpg'),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: TabBarView(
-                physics: CustomPhysics(),
-                controller: this.mController,
-                children: this._tabBarViewList,
-              ),
+          ),
+          Expanded(
+            child: TabBarView(
+              physics: CustomPhysics(),
+              controller: this.mController,
+              children: this._tabBarViewList,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -149,6 +131,6 @@ class CustomPhysics extends ScrollPhysics {
 
   @override
   SpringDescription get spring {
-    return SpringDescription(mass: 80, stiffness: 150, damping: 0.8);
+    return SpringDescription(mass: 90, stiffness: 150, damping: 0.8);
   }
 }

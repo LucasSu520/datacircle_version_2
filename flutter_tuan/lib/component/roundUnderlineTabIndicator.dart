@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 const double _kTabHeight = 40.0;
 const double _kTextAndIconTabHeight = 72.0;
 const EdgeInsets kTabLabelPadding = EdgeInsets.symmetric(horizontal: 5.0);
+const EdgeInsets kIndicatorPadding=EdgeInsets.only(bottom: 4);
 
 class RoundUnderlineTabIndicator extends Decoration {
   /// Create an underline style selected tab indicator.
@@ -13,12 +14,13 @@ class RoundUnderlineTabIndicator extends Decoration {
   /// The [borderSide] and [insets] arguments must not be null.
   const RoundUnderlineTabIndicator({
     this.borderSide = const BorderSide(width: 3.0, color: Colors.blue),
-    this.insets = EdgeInsets.zero,
+    this.insets = kIndicatorPadding,
   })  : assert(borderSide != null),
         assert(insets != null);
 
   /// The color and weight of the horizontal line drawn below the selected tab.
   final BorderSide borderSide;
+
 
   /// Locates the selected tab's underline relative to the tab's boundary.
   ///
@@ -76,7 +78,7 @@ class _UnderlinePainter extends BoxPainter {
 //      borderSide.width,
 //    );
     //希望的宽度
-    double wantWidth = 30;
+    double wantWidth = 25;
     //取中间坐标
     double cw = (indicator.left + indicator.right) / 2;
     return Rect.fromLTWH(cw - wantWidth / 2,
