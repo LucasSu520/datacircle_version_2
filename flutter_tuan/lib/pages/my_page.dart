@@ -82,7 +82,7 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
                     padding: EdgeInsets.only(right: 5),
                     child: CircleAvatar(
                       radius: RadiusSizeConstants.circleAvatarSize,
-                      backgroundImage: AssetImage('images/duoduo.jpg'),
+                      backgroundImage: AssetImage('images/food.jpg'),
                     ),
                   ),
                 ),

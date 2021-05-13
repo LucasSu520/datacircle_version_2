@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/constants/radius_size_constant.dart';
-import 'package:flutter_tuan/pages/forumPage.dart';
+import 'package:flutter_tuan/pages/forum_page.dart';
 import 'package:flutter_tuan/pages/moment_recommendedPage.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/component/tile_subscrib.dart';

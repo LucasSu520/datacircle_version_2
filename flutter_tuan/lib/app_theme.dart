@@ -24,12 +24,13 @@ class AppTheme {
 
   static const TextTheme textTheme = TextTheme(
     headline4: display1,
-    headline5: headline,
+    headline5: headline1,
     headline6: title,
     subtitle2: subtitle,
     bodyText2: body2,
     bodyText1: body1,
     caption: caption,
+
   );
 
   static const TextStyle display1 = TextStyle(
@@ -41,12 +42,19 @@ class AppTheme {
     color: darkerText,
   );
 
-  static const TextStyle headline = TextStyle(
+  static const TextStyle headline1 = TextStyle(
     // h5 -> headline
     fontWeight: FontWeight.bold,
-    fontSize: 24,
+    fontSize: 22,
     letterSpacing: 0.27,
     color: darkerText,
+  );
+
+  static const TextStyle headline2 =TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+    letterSpacing: 0.20,
+    color: darkerText
   );
 
   static const TextStyle title = TextStyle(

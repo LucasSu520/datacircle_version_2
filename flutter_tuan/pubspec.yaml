@@ -25,10 +25,10 @@ dependencies:
     sdk: flutter
   bubble_tab_indicator: "^0.1.5"
   font_awesome_flutter: ^9.0.0
-  smooth_star_rating: ^1.1.1
   flutter_swiper: ^1.1.6
   material_floating_search_bar: ^0.3.4
   smooth_page_indicator: ^0.2.3
+  http: ^0.13.3
 
 
 

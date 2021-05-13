@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
-import 'package:flutter_tuan/app_theme.dart';
 import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/main.dart';
-import 'package:flutter_tuan/pages/recommendedPage.dart';
-import 'package:flutter_tuan/pages/upcomingPage.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
-import 'RankPage.dart';
+import 'package:flutter_tuan/pages/tuan_activity_page.dart';
+
+const List<String> tabBarNameList=['推荐','即将开始','排名'];
 
 class TuanPage extends StatefulWidget {
   @override
@@ -88,32 +87,15 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    this._tabBarList = [
-      Tab(
-        text: '推荐',
-      ),
-      Tab(
-        text: '即将开始',
-      ),
-      Tab(
-        text: '排名',
-      ),
-    ];
-    this._tabBarViewList = [
-      RecommendedPage(),
-      UpComingPage(),
-      RankPage(),
-    ];
+    tabBarNameList.forEach((name) {
+      this._tabBarList.add(Tab(text: name,));
+      this._tabBarViewList.add(TuanActivityPage(name:name,));
+    });
     this.mController = new TabController(
         initialIndex: 0, length: this._tabBarList.length, vsync: this);
-
     super.initState();
   }
 
-  Future<bool> getData() async {
-    await Future<dynamic>.delayed(const Duration(milliseconds: 200));
-    return true;
-  }
 
   @override
   void dispose() {

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/app_theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 import 'activity.dart';
 
@@ -113,7 +112,7 @@ class ActivityListView extends StatelessWidget {
                                                   size: 12,
                                                   color:
                                                       AppTheme.buildLightTheme()
-                                                          .primaryColor,
+                                                          .accentColor,
                                                 ),
                                                 const SizedBox(
                                                   width: 4,
@@ -136,20 +135,10 @@ class ActivityListView extends StatelessWidget {
                                                 padding: const EdgeInsets.only(
                                                     top: 4),
                                                 child: Row(children: <Widget>[
-                                                  SmoothStarRating(
-                                                    allowHalfRating: true,
-                                                    starCount: 5,
-                                                    rating: activity.rating,
-                                                    size: 20,
-                                                    color: AppTheme
-                                                            .buildLightTheme()
-                                                        .primaryColor,
-                                                  ),
-                                                  const SizedBox(width: 2),
                                                   Text(
                                                       '${activity.personNum}人'),
                                                   const SizedBox(
-                                                    width: 2,
+                                                    width: 4,
                                                   ),
                                                   Text('时间：${activity.time}')
                                                 ])),

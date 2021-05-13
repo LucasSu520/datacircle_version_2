@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tuan/app_theme.dart';
 import 'package:flutter_tuan/model/activity.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-class ActivityListView extends StatelessWidget {
-  const ActivityListView(
+class TuanActivityDetail extends StatelessWidget {
+  const TuanActivityDetail(
       {Key key,
         this.activity,
         this.animationController,
@@ -64,16 +63,16 @@ class ActivityListView extends StatelessWidget {
                               ),
                               Container(
                                 color:
-                                AppTheme.buildLightTheme().backgroundColor,
+                                Theme.of(context).backgroundColor,
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Expanded(
                                         child: Container(
                                           child: Padding(
                                             padding: const EdgeInsets.only(
-                                                left: 16, top: 8, bottom: 8),
+                                                left: 8, top: 8, bottom: 8),
                                             child: Column(
                                               mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -103,21 +102,19 @@ class ActivityListView extends StatelessWidget {
                                                       ),
                                                     ),
                                                     const SizedBox(
-                                                      width: 4,
+                                                      width: 2,
                                                     ),
                                                     Icon(
-                                                      FontAwesomeIcons.mapMarkedAlt,
+                                                      FontAwesomeIcons.mapMarkerAlt,
                                                       size: 12,
                                                       color:
-                                                      AppTheme.buildLightTheme()
-                                                          .primaryColor,
+                                                      Theme.of(context).accentColor,
                                                     ),
                                                     const SizedBox(
-                                                      width: 4,
+                                                      width: 2,
                                                     ),
-                                                    Expanded(
-                                                      child: Text(
-                                                        '${activity.dist.toStringAsFixed(1)} km to city',
+                                                    Text(
+                                                        '${activity.dist.toStringAsFixed(1)} km',
                                                         overflow:
                                                         TextOverflow.ellipsis,
                                                         style: TextStyle(
@@ -126,30 +123,40 @@ class ActivityListView extends StatelessWidget {
                                                               .withOpacity(0.8),
                                                         ),
                                                       ),
-                                                    )
                                                   ],
                                                 ),
                                                 Padding(
                                                     padding: const EdgeInsets.only(
                                                         top: 4),
                                                     child: Row(children: <Widget>[
-                                                      SmoothStarRating(
-                                                        allowHalfRating: true,
-                                                        starCount: 5,
-                                                        rating: activity.rating,
-                                                        size: 20,
-                                                        color: AppTheme
-                                                            .buildLightTheme()
-                                                            .primaryColor,
-                                                      ),
                                                       const SizedBox(width: 2),
-                                                      Text(
-                                                          '${activity.personNum}人'),
-                                                      const SizedBox(
-                                                        width: 2,
+                                                      RichText(
+                                                        text: TextSpan(
+                                                          text: '人数：',
+                                                          style: AppTheme.subtitle,
+                                                          children: [
+                                                            TextSpan(
+                                                              text: '${activity.personNum}',
+                                                              style:AppTheme.title,
+                                                            )
+                                                          ]
+                                                        ),
                                                       ),
-                                                      Text('时间：${activity.time}')
-                                                    ])),
+                                                      const SizedBox(
+                                                        width: 8,
+                                                      ),
+                                                      RichText(
+                                                      text: TextSpan(
+                                                          text: '时间：',
+                                                          style: AppTheme.subtitle,
+                                                          children: [
+                                                            TextSpan(
+                                                              text: '${activity.time}',
+                                                              style: AppTheme.title,
+                                                            )
+                                                          ]
+                                                      )
+                                                      )])),
                                               ],
                                             ),
                                           ),
@@ -177,13 +184,13 @@ class ActivityListView extends StatelessWidget {
                                             activity.official ? '官方' : '',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
-                                                color: Colors.grey,
+                                                color: Theme.of(context).accentColor,
                                                 fontWeight: FontWeight.w100,
                                                 fontSize: 18),
                                           ),
                                         ],
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               )
