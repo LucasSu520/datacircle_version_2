@@ -1,34 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/app_theme.dart';
-import 'package:flutter_tuan/model/activity.dart';
+import 'package:flutter_tuan/model/tuan_activity_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TuanActivityDetail extends StatelessWidget {
   const TuanActivityDetail(
       {Key key,
         this.activity,
-        this.animationController,
         this.animation,
         this.callback})
       : super(key: key);
 
   final VoidCallback callback;
-  final Activity activity;
-  final AnimationController animationController;
+  final TuanActivityItemModel activity;
   final Animation<dynamic> animation;
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: animationController,
-        builder: (BuildContext context, Widget child) {
-          return FadeTransition(
-            opacity: animation,
-            child: Transform(
-              transform: Matrix4.translationValues(
-                  0.0, 50 * (1.0 - animation.value), 0.0),
-              child: Padding(
+    return  Padding(
                 padding: const EdgeInsets.only(
                     left: 18, right: 18, top: 8, bottom: 16),
                 child: InkWell(
@@ -57,7 +47,7 @@ class TuanActivityDetail extends StatelessWidget {
                               AspectRatio(
                                 aspectRatio: 2,
                                 child: Image.asset(
-                                  activity.imagePath,
+                                  activity.imageUrl,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -80,7 +70,7 @@ class TuanActivityDetail extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Text(
-                                                  activity.titleTxt,
+                                                  activity.name,
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
@@ -94,7 +84,7 @@ class TuanActivityDetail extends StatelessWidget {
                                                   MainAxisAlignment.start,
                                                   children: <Widget>[
                                                     Text(
-                                                      activity.subTxt,
+                                                      activity.dest,
                                                       style: TextStyle(
                                                         fontSize: 14,
                                                         color: Colors.grey
@@ -114,7 +104,7 @@ class TuanActivityDetail extends StatelessWidget {
                                                       width: 2,
                                                     ),
                                                     Text(
-                                                        '${activity.dist.toStringAsFixed(1)} km',
+                                                        '1.2 km',
                                                         overflow:
                                                         TextOverflow.ellipsis,
                                                         style: TextStyle(
@@ -136,7 +126,7 @@ class TuanActivityDetail extends StatelessWidget {
                                                           style: AppTheme.subtitle,
                                                           children: [
                                                             TextSpan(
-                                                              text: '${activity.personNum}',
+                                                              text: '${activity.person}',
                                                               style:AppTheme.title,
                                                             )
                                                           ]
@@ -181,7 +171,7 @@ class TuanActivityDetail extends StatelessWidget {
                                             height: 4,
                                           ),
                                           Text(
-                                            activity.official ? '官方' : '',
+                                            activity.isOfficial ? '官方' : '',
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
                                                 color: Theme.of(context).accentColor,
@@ -227,9 +217,7 @@ class TuanActivityDetail extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ),
-          );
-        });
+              );
+
+        }
   }
-}

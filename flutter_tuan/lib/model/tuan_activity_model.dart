@@ -34,7 +34,7 @@ class TuanActivityListModel {
   TuanActivityListModel(this.data);
 
   factory TuanActivityListModel.fromJson(List json) {
-    return TuanActivityListModel.fromJson(
+    return TuanActivityListModel(
         json.map((e) => TuanActivityItemModel.fromJosn((e))).toList());
   }
 }

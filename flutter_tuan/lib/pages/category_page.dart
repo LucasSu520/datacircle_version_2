@@ -10,7 +10,6 @@ import 'package:flutter_tuan/component/square_swiper_pagination.dart';
 const DEFAULT_TEXT = '用户 | 活动 | 地点';
 
 class CategoryPage extends StatefulWidget {
-
   @override
   _CategoryPageState createState() => _CategoryPageState();
 }
@@ -23,7 +22,7 @@ class _CategoryPageState extends State<CategoryPage> {
     return Material(
       color: Colors.white,
       child: ListView(
-        padding: EdgeInsets.fromLTRB(19, 10, 19, 10),
+        padding: kDefaultTabBarPadding,
         children: [
           Row(children: [
             (Expanded(
@@ -31,8 +30,9 @@ class _CategoryPageState extends State<CategoryPage> {
               hint: DEFAULT_TEXT,
             ))),
             SizedBox(
-              width: 6,
-            ),GestureDetector(
+              width: 8,
+            ),
+            GestureDetector(
               onTap: () {
                 MyApp.scaffoldKey.currentState.openDrawer();
               },
@@ -62,7 +62,9 @@ class _CategoryPageState extends State<CategoryPage> {
                       activeColor: Colors.white)),
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    //TODO navigator to the activity detail page
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),

@@ -15,8 +15,8 @@ class TuanPage extends StatefulWidget {
 }
 
 class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
-  List<Tab> _tabBarList;
-  List<Widget> _tabBarViewList;
+  List<Tab> _tabBarList=[];
+  List<Widget> _tabBarViewList=[];
   TabController mController;
   TabBar mTabBar;
 
