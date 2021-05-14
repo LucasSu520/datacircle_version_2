@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/pages/categoryPage.dart';
-import 'package:flutter_tuan/pages/messagePage.dart';
-import 'package:flutter_tuan/pages/momentsPage.dart';
-import 'package:flutter_tuan/pages/myPage.dart';
-import 'package:flutter_tuan/pages/tuanPage.dart';
+import 'package:flutter_tuan/pages/category_page.dart';
+import 'package:flutter_tuan/pages/message_page.dart';
+import 'package:flutter_tuan/pages/moment_page.dart';
+import 'package:flutter_tuan/pages/my_page.dart';
+import 'package:flutter_tuan/pages/tuan_page.dart';
 
 class TabNavigator extends StatefulWidget {
   Key key;
@@ -48,6 +48,7 @@ class _TabNavigatorState extends State<TabNavigator> {
         currentIndex: _currentPage,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: 14,
+        selectedItemColor: Theme.of(context).accentColor,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: '团'),
           BottomNavigationBarItem(icon: Icon(Icons.category),label: '分类'),

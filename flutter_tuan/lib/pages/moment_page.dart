@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/pages/forumPage.dart';
+import 'package:flutter_tuan/constants/radius_size_constant.dart';
+import 'package:flutter_tuan/pages/forum_page.dart';
 import 'package:flutter_tuan/pages/moment_recommendedPage.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/component/tile_subscrib.dart';
+
+import '../main.dart';
 
 class MomentsPage extends StatefulWidget {
   @override
@@ -137,12 +140,17 @@ class _MomentsPageState extends State<MomentsPage>
                       labelColor: Colors.black,
                     ),
                   )),
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 8, 20, 0),
-                child: (CircleAvatar(
-                  radius: 14.0,
-                  backgroundImage: AssetImage('images/duoduo.jpg'),
-                )),
+              GestureDetector(
+                onTap: () {
+                  MyApp.scaffoldKey.currentState.openDrawer();
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(right: 5),
+                  child: CircleAvatar(
+                    radius: RadiusSizeConstants.circleAvatarSize,
+                    backgroundImage: AssetImage('images/duoduo.jpg'),
+                  ),
+                ),
               ),
             ]),
             Expanded(

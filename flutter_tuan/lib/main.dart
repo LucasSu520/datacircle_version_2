@@ -22,23 +22,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-
-
-
-    return MaterialApp(
-      theme:ThemeData(
-        primaryColor: Colors.white,
-        textTheme: AppTheme.textTheme,
-        platform: TargetPlatform.iOS,
-        appBarTheme: AppTheme.buildWhiteBar(),
-      ),
+    return Theme(data:AppTheme.buildLightTheme() ,child: MaterialApp(
+      theme:AppTheme.buildLightTheme(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         drawer: CustomDrawer(),
         key: scaffoldKey,
         body: TabNavigator(),
       ),
-    );
+    ),);
   }
 }
 

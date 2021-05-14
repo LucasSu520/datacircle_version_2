@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/pages/categoryPage.dart';
+import 'package:flutter_tuan/pages/category_page.dart';
 import 'package:flutter_tuan/component/ExpandedText.dart';
 
 class TileRecommend extends StatefulWidget {

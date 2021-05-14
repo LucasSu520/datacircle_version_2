@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/constants/radius_size_constant.dart';
 import 'package:flutter_tuan/model/common_model.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
+
+import '../main.dart';
 
 class MessagePage extends StatefulWidget {
   @override
@@ -167,13 +170,18 @@ class _MessagePageState extends State<MessagePage>
                     size: 28,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 8),
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('images/duoduo.jpg'),
-                    radius: 14,
+                GestureDetector(
+                  onTap: () {
+                    MyApp.scaffoldKey.currentState.openDrawer();
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 5),
+                    child: CircleAvatar(
+                      radius: RadiusSizeConstants.circleAvatarSize,
+                      backgroundImage: AssetImage('images/duoduo.jpg'),
+                    ),
                   ),
-                ),
+                )
               ]),
             ),
             Padding(
