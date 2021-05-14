@@ -1,8 +1,6 @@
 import 'package:flutter_tuan/model/tuan_activity_model.dart';
 
-class ActivityList {
-  final String name;
-  ActivityList(this.name);
+getTuanActivityList(String name) {
 
   List<TuanActivityItemModel> recommendActivityList = <TuanActivityItemModel>[
     TuanActivityItemModel(
@@ -110,7 +108,7 @@ class ActivityList {
         group: '科技',
         isOfficial: false),
   ];
-  List<TuanActivityItemModel> getActivityList() {
+
     switch (name) {
       case '推荐':
         // set the return for the functon.
@@ -126,4 +124,3 @@ class ActivityList {
     }
     return null;
   }
-}

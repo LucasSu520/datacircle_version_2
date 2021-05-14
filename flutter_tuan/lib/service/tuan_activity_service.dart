@@ -1,6 +1,4 @@
-//set the api
-//use http to get json
-//then use the json.body
+
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;

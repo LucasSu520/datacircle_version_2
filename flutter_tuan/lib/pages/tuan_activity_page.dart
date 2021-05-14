@@ -4,7 +4,6 @@ import 'package:flutter_tuan/data/tuan_activity_list_data.dart';
 
 import 'package:flutter_tuan/model/tuan_activity_model.dart';
 import 'package:flutter_tuan/pages/tuan_activity_list_page.dart';
-import 'package:flutter_tuan/service/tuan_activity_service.dart';
 
 class TuanActivityPage extends StatefulWidget {
   const TuanActivityPage({this.name});
@@ -26,7 +25,7 @@ class _TuanActivityPageState extends State<TuanActivityPage>
     // TuanActivityListModel list = TuanActivityListModel.fromJson(data);
     Future.delayed(Duration(milliseconds: 200)).then((e) {
       setState(() {
-        _activityListModel.data.addAll(ActivityList(widget.name).getActivityList());
+        _activityListModel.data.addAll(getTuanActivityList(name));
       });
     });
   }
@@ -34,9 +33,7 @@ class _TuanActivityPageState extends State<TuanActivityPage>
   @override
   void initState() {
     //TODO when the service is connected edit here
-    this._activityListModel.data.addAll(ActivityList(widget.name).getActivityList());
-    this._activityListModel.data.addAll(ActivityList(widget.name).getActivityList());
-    this._activityListModel.data.addAll(ActivityList(widget.name).getActivityList());
+    this._activityListModel.data.addAll(getTuanActivityList(widget.name));
     //if the service is connected open this
     // getTuanActivityList(widget.name);
     super.initState();

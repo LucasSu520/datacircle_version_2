@@ -5,7 +5,7 @@ class CatBannerItemModel {
   final String image;
 
   factory CatBannerItemModel.fromJson(dynamic json) {
-    return CatBannerItemModel(image: json.image);
+    return CatBannerItemModel(image: json['image']);
   }
 }
 
@@ -14,6 +14,6 @@ class CatBannerListModel {
   CatBannerListModel(this.data);
   factory CatBannerListModel.fromFactory(List json) {
     return CatBannerListModel(
-        json.map((e) => CatBannerItemModel.fromJson(e)).toList());
+        json.map((e) => CatBannerItemModel.fromJson((e))).toList());
   }
 }
