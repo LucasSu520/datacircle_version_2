@@ -1,26 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/model/common_model.dart';
+import 'package:flutter_tuan/model/cat_activity_model.dart';
 
-class LocalNav extends StatelessWidget {
-  final CommonListModel localNavList;
-  final String title;
-  LocalNav({Key key, @required this.localNavList, @required this.title})
+class CatActivityDetail extends StatelessWidget {
+
+  CatActivityDetail(
+      {Key key, @required this.catActivityListModel})
       : super(key: key);
-
+       CatActivityListModel catActivityListModel;
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      NavTitle(title: this.title),
-     Container(height: 120,child: _items(context),
+      NavTitle(title: catActivityListModel.title),
+      Container(
+        height: 120,
+        child: _list(context),
       )
     ]);
   }
 
-  _items(BuildContext context) {
-    if (localNavList == null) return null;
-    List<Widget> items = [];
-    localNavList.data.forEach((model) {
+  _list(BuildContext context) {
+    if (catActivityListModel == null) return null;
+    List<Widget> items = <Widget>[];
+    catActivityListModel.data.forEach((model) {
       items.add(_item(context, model));
     });
     return ListView(
@@ -30,7 +32,7 @@ class LocalNav extends StatelessWidget {
     );
   }
 
-  _item(BuildContext context, CommonModel model) {
+  _item(BuildContext context, CatActivityItemModel model) {
     return Padding(
       padding: EdgeInsets.all(4),
       child: Column(
@@ -40,12 +42,12 @@ class LocalNav extends StatelessWidget {
             width: 80,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              image: DecorationImage(image: AssetImage(model.image),fit: BoxFit.cover),
+              image: DecorationImage(
+                  image: AssetImage(model.imageUrl), fit: BoxFit.cover),
             ),
-
           ),
           Text(
-            model.title,
+            model.name,
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
           ),
           model.isOfficial
@@ -53,13 +55,17 @@ class LocalNav extends StatelessWidget {
                   height: 15,
                   width: 30,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(5)),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
                     border: Border.all(
                       color: Colors.grey,
                       width: 1.0,
                     ),
                   ),
-                  child: Text('官方',style: TextStyle(fontSize: 8),),
+                  child: Text(
+                    '官方',
+                    style: TextStyle(fontSize: 8),
+                  ),
                 )
               : Container()
         ],
@@ -73,9 +79,7 @@ class NavTitle extends StatelessWidget {
     Key key,
     @required this.title,
   }) : super(key: key);
-
   final String title;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,7 +92,7 @@ class NavTitle extends StatelessWidget {
             left: 5,
             child: Text(
               this.title,
-              style: TextStyle(fontSize: 20,fontWeight: FontWeight.w800),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
             ),
           ),
           Positioned(

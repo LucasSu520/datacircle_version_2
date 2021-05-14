@@ -7,7 +7,7 @@ import 'package:flutter_tuan/main.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 import 'package:flutter_tuan/pages/tuan_activity_page.dart';
 
-const List<String> tabBarNameList=['推荐','即将开始','排名'];
+const List<String> tabBarNameList = ['推荐', '即将开始', '排名'];
 
 class TuanPage extends StatefulWidget {
   @override
@@ -15,8 +15,8 @@ class TuanPage extends StatefulWidget {
 }
 
 class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
-  List<Tab> _tabBarList=[];
-  List<Widget> _tabBarViewList=[];
+  List<Tab> _tabBarList = [];
+  List<Widget> _tabBarViewList = [];
   TabController mController;
   TabBar mTabBar;
 
@@ -88,14 +88,17 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
   @override
   void initState() {
     tabBarNameList.forEach((name) {
-      this._tabBarList.add(Tab(text: name,));
-      this._tabBarViewList.add(TuanActivityPage(name:name,));
+      this._tabBarList.add(Tab(
+            text: name,
+          ));
+      this._tabBarViewList.add(TuanActivityPage(
+            name: name,
+          ));
     });
     this.mController = new TabController(
         initialIndex: 0, length: this._tabBarList.length, vsync: this);
     super.initState();
   }
-
 
   @override
   void dispose() {

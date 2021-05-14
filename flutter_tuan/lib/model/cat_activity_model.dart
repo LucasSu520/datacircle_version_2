@@ -14,12 +14,16 @@ class CatActivityItemModel {
 }
 
 class CatActivityListModel{
+  String title;
   List<CatActivityItemModel> data;
-  CatActivityListModel(this.data);
+  CatActivityListModel({this.title,this.data});
 
-  factory CatActivityListModel.fromJson(List json){
+  factory CatActivityListModel.fromJson(Map<String ,dynamic> json){
     return CatActivityListModel(
-      json.map((e) => CatActivityItemModel.fronJson((e))).toList()
+      title: json['title'],
+      data: json['catActivityListModel']
     );
   }
 }
+
+

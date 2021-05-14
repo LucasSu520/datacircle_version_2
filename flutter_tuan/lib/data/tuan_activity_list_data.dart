@@ -1,7 +1,6 @@
 import 'package:flutter_tuan/model/tuan_activity_model.dart';
 
 getTuanActivityList(String name) {
-
   List<TuanActivityItemModel> recommendActivityList = <TuanActivityItemModel>[
     TuanActivityItemModel(
         imageUrl: 'images/skate.jpg',
@@ -109,18 +108,18 @@ getTuanActivityList(String name) {
         isOfficial: false),
   ];
 
-    switch (name) {
-      case '推荐':
-        // set the return for the functon.
-        return recommendActivityList;
-        break;
-      case '即将开始':
-        return upcomingPageActivityList;
-        break;
-      case '排名':
-        return rankPageActivityList;
-        break;
-      default:
-    }
-    return null;
+  switch (name) {
+    case '推荐':
+      // set the return for the functon.
+      return recommendActivityList;
+      break;
+    case '即将开始':
+      return upcomingPageActivityList;
+      break;
+    case '排名':
+      return rankPageActivityList;
+      break;
+    default:
   }
+  return null;
+}

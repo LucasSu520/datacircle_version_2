@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/pages/category_page.dart';
+import 'package:flutter_tuan/pages/cat_page.dart';
 import 'package:flutter_tuan/pages/message_page.dart';
 import 'package:flutter_tuan/pages/moment_page.dart';
 import 'package:flutter_tuan/pages/my_page.dart';

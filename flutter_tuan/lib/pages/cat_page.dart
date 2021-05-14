@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/component/cat_page_banner.dart';
 import 'package:flutter_tuan/constants/constant.dart';
+import 'package:flutter_tuan/data/cat_activity_data.dart';
 import 'package:flutter_tuan/data/cat_banner_data.dart';
 import 'package:flutter_tuan/main.dart';
 import 'package:flutter_tuan/model/cat_activity_model.dart';
 import 'package:flutter_tuan/model/cat_banner_model.dart';
-import 'package:flutter_tuan/model/common_model.dart';
-import 'package:flutter_tuan/component/local_nav.dart';
+
 import 'package:flutter_tuan/component/search_bar.dart';
+import 'package:flutter_tuan/pages/cat_avtivity_list_page.dart';
+import 'package:flutter_tuan/service/cat_activity_service.dart';
 
 const DEFAULT_TEXT = '用户 | 活动 | 地点';
 
@@ -17,8 +19,7 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  List<CommonModel> localNavList = [];
-  CatActivityListModel _catActivityListModel=CatActivityListModel([]);
+  List<CatActivityListModel> list=[];
   CatBannerListModel _catBannerListModel=CatBannerListModel([]);
 
   @override
@@ -57,10 +58,7 @@ class _CategoryPageState extends State<CategoryPage> {
             height: 20,
           ),
           //TODO add the common list to the commonlistmodel
-          LocalNav(localNavList: CommonListModel(List()), title: '网游 '),
-          LocalNav(localNavList: CommonListModel(List()), title: '网游 '),
-          LocalNav(localNavList: CommonListModel(List()), title: '网游 '),
-
+          CatActivityListPage(catActivityListModel: this.list,),
           // Container(color: Colors.blueAccent,
           //   width:MediaQuery.of(context).size.width,
           //   padding: EdgeInsets.fromLTRB(14, 0, 14, 0),
@@ -78,7 +76,7 @@ class _CategoryPageState extends State<CategoryPage> {
     //TODO when the network is connected edit the catactivityListmodel;
     
     this._catBannerListModel.data.addAll(getCatBannerList());
-    this.localNavList = new List();
+    this.list.addAll(getCatActivitiesData());
     super.initState();
   }
 }

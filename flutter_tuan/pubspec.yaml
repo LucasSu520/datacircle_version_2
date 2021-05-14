@@ -29,6 +29,7 @@ dependencies:
   material_floating_search_bar: ^0.3.4
   smooth_page_indicator: ^0.2.3
   http: ^0.13.3
+  build_runner: ^1.10.0
 
 
 
