@@ -4,31 +4,47 @@ import 'package:flutter_tuan/model/tuan_activity_model.dart';
 
 import '../app_theme.dart';
 
-class TuanActivityListPage extends StatelessWidget {
+
+class TuanActivityListPage extends StatefulWidget {
+  static final ScrollController tuanActivityScrollController=new ScrollController();
+
   const TuanActivityListPage(
-      {this.activityListModel, this.animationController, this.getNextPage});
+      {this.activityListModel, this.animationController, this.getNextPage,});
 
   final TuanActivityListModel activityListModel;
   final AnimationController animationController;
   final VoidCallback getNextPage;
+  @override
+  _TuanActivityListPageState createState() => _TuanActivityListPageState();
+}
 
-  // finish the tuan activity list page
+
+  class _TuanActivityListPageState extends State<TuanActivityListPage> {
+
+  @override
+  void initState() {
+    super.initState();
+  } // finish the tuan activity list page
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppTheme.buildLightTheme().backgroundColor,
+      color: AppTheme
+          .buildLightTheme()
+          .backgroundColor,
       child: ListView.builder(
-        itemCount: this.activityListModel.data.length,
-        physics: ClampingScrollPhysics(),
+        itemCount: widget.activityListModel.data.length,
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.only(top: 6),
+        controller
+        :TuanActivityListPage.tuanActivityScrollController,
         scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
-          if(index+1==this.activityListModel.data.length){
-            getNextPage();
+          if (index + 1 == widget.activityListModel.data.length) {
+            widget.getNextPage();
           }
           return TuanActivityDetail(
             callback: () {},
-            activity: this.activityListModel.data[index],
+            activity: widget.activityListModel.data[index],
           );
         },
       ),

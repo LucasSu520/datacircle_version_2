@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/pages/cat_avtivity_list_page.dart';
 import 'package:flutter_tuan/pages/cat_page.dart';
 import 'package:flutter_tuan/pages/message_page.dart';
 import 'package:flutter_tuan/pages/moment_page.dart';
 import 'package:flutter_tuan/pages/my_page.dart';
+import 'package:flutter_tuan/pages/tuan_activity_list_page.dart';
 import 'package:flutter_tuan/pages/tuan_page.dart';
 
 class TabNavigator extends StatefulWidget {
@@ -16,6 +18,7 @@ class _TabNavigatorState extends State<TabNavigator> {
 
   List<Widget> pages=[];
   int _currentPage;
+
 
 
   @override
@@ -42,6 +45,16 @@ class _TabNavigatorState extends State<TabNavigator> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: ((index){
           setState(() {
+            if(_currentPage==index){
+              switch (index){
+                case 0:
+                  TuanActivityListPage.tuanActivityScrollController.jumpTo(0.0);
+                  break;
+                case 1:
+                  CategoryPage.catActivityController.jumpTo(0.0);
+                  break;
+              }
+            }
             _currentPage=index;
           });
         }),

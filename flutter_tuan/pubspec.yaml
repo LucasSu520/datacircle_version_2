@@ -68,6 +68,8 @@ flutter:
     - football.jpg
     - concert.jpg
     - PUBG.jpeg
+    - computer.jpeg
+    - lol.jpg
     - MeetingRoom.jpg
     - lunZiMa.jpg
     - sousuo.png
@@ -84,6 +86,10 @@ flutter:
     - subscription.png
     - scan.png
     - favorite.png
+    - climbing.jpg
+    - CS.jpg
+    - strawberry.jpg
+    - guitar.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

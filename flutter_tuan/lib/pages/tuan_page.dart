@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/main.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
+import 'package:flutter_tuan/pages/tuan_activity_list_page.dart';
 import 'package:flutter_tuan/pages/tuan_activity_page.dart';
 
 const List<String> tabBarNameList = ['推荐', '即将开始', '排名'];
@@ -14,11 +16,15 @@ class TuanPage extends StatefulWidget {
   _TuanPageState createState() => _TuanPageState();
 }
 
-class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
+class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin,AutomaticKeepAliveClientMixin {
   List<Tab> _tabBarList = [];
   List<Widget> _tabBarViewList = [];
   TabController mController;
   TabBar mTabBar;
+
+
+  @override
+  bool get wantKeepAlive =>true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
       child: Column(
         children: [
           Padding(
-            padding: kDefaultTabBarPadding,
+            padding: kDefaultTabBarPadding.copyWith(left: 7,top: 13),
             child: Row(
               children: [
                 Expanded(
@@ -52,6 +58,7 @@ class _TuanPageState extends State<TuanPage> with TickerProviderStateMixin {
                   child: FloatingActionButton(
                     onPressed: () {
                       //TODO add the click navigator to the search page
+
                     },
                     backgroundColor: Colors.white,
                     child: Icon(CupertinoIcons.search),
