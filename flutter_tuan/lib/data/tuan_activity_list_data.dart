@@ -1,6 +1,6 @@
 import 'package:flutter_tuan/model/tuan_activity_model.dart';
 
-getTuanActivityList(String name) {
+getTuanActivityData(String name) {
   List<TuanActivityItemModel> recommendActivityList = <TuanActivityItemModel>[
     TuanActivityItemModel(
         imageUrl: 'images/skate.jpg',

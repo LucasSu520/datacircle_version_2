@@ -4,4 +4,5 @@ class RadiusSizeConstants{
   static const small=4.0;
   static const xSmall=2.0;
   static const circleAvatarSize=14.0;
+  static const floatButtonSize=25.0;
 }

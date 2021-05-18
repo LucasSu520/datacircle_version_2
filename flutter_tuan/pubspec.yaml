@@ -30,6 +30,7 @@ dependencies:
   smooth_page_indicator: ^0.2.3
   http: ^0.13.3
   build_runner: ^1.10.0
+  provider: ^5.0.0
 
 
 
@@ -64,6 +65,8 @@ flutter:
     - wolfKill.jpeg
     - party.jpg
     - food.jpg
+    - nana.jpg
+    - ouyangnana.jpg
     - library.jpeg
     - football.jpg
     - concert.jpg
@@ -71,6 +74,7 @@ flutter:
     - computer.jpeg
     - lol.jpg
     - MeetingRoom.jpg
+    - ring3.jpg
     - lunZiMa.jpg
     - sousuo.png
     - yuyin.png

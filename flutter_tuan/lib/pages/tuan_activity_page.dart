@@ -25,7 +25,7 @@ class _TuanActivityPageState extends State<TuanActivityPage>
     // TuanActivityListModel list = TuanActivityListModel.fromJson(data);
     Future.delayed(Duration(milliseconds: 200)).then((e) {
       setState(() {
-        _activityListModel.data.addAll(getTuanActivityList(name));
+        _activityListModel.data.addAll(getTuanActivityData(name));
       });
     });
   }
@@ -33,7 +33,7 @@ class _TuanActivityPageState extends State<TuanActivityPage>
   @override
   void initState() {
     //TODO when the service is connected edit here
-    this._activityListModel.data.addAll(getTuanActivityList(widget.name));
+    this._activityListModel.data.addAll(getTuanActivityData(widget.name));
     //if the service is connected open this
     // getTuanActivityList(widget.name);
     super.initState();

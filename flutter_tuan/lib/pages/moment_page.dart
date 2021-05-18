@@ -1,11 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/component/animation_float_button.dart';
+import 'package:flutter_tuan/component/custom_physics.dart';
+import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/constants/radius_size_constant.dart';
 import 'package:flutter_tuan/pages/forum_page.dart';
 import 'package:flutter_tuan/pages/moment_recommendedPage.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
-import 'package:flutter_tuan/component/tile_subscrib.dart';
+import 'package:flutter_tuan/pages/moment_sub_activity_page.dart';
 
 import '../main.dart';
+
+const List<String> tabBarName = ['关注', '推荐', '热榜'];
 
 class MomentsPage extends StatefulWidget {
   @override
@@ -15,46 +21,67 @@ class MomentsPage extends StatefulWidget {
 class _MomentsPageState extends State<MomentsPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  List<Tab> _tabsOne;
-  List<Tab> _tabsTwo;
-  List<Tab> _tabs;
+  List<Tab> _tabs = [];
   List<Widget> _tabViewList;
 
   @override
   void initState() {
     _tabController = new TabController(length: 3, vsync: this);
-    _tabsOne = [
-      Tab(
-          child: (Container(
-        alignment: Alignment.centerLeft,
-        padding: EdgeInsets.only(left: 6),
-        width: 50,
-        child: Stack(children: [
-          Positioned(
-            child: Text('关注'),
-            left: 0,
-            top: 14,
-          ),
-          Positioned(
-            child: Icon(
-              Icons.arrow_drop_down,
-              size: 14.0,
-            ),
-            right: 0,
-            top: 18,
-          ),
-        ]),
-      ))),
-      Tab(
-        text: '推荐',
-      ),
-      Tab(
-        text: '热榜',
-      )
+
+    tabBarName.forEach((element) {
+      if (element == '关注') {
+        this._tabs.add(
+              Tab(
+                  child: (Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 6),
+                width: 50,
+                child: Stack(children: [
+                  Positioned(
+                    child: Text('关注'),
+                    left: 0,
+                    top: 14,
+                  ),
+                  Positioned(
+                    child: Icon(
+                      Icons.arrow_drop_down,
+                      size: 14.0,
+                    ),
+                    right: 0,
+                    top: 18,
+                  ),
+                ]),
+              ))),
+            );
+      } else {
+        this._tabs.add(Tab(text: element));
+      }
+    });
+
+    _tabViewList = [
+      MomentSubActivityPage(),
+      MomentRecommendedPage(),
+      ForumPage(),
     ];
-    _tabsTwo = [
-      Tab(
-        child: (Container(
+    _tabController.addListener(() {
+      setState(() {
+        if (_tabController.index != 0) {
+          _tabs[0] = Tab(
+              child: (Container(
+                  padding: EdgeInsets.only(left: 6),
+                  width: 50,
+                  child: Stack(children: [
+                    Positioned(
+                      child: Text('关注'),
+                      left: 0,
+                      top: 14,
+                    )
+                  ]))));
+          return;
+        }
+        _tabs[0] = Tab(
+            child: (Container(
+          alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(left: 6),
           width: 50,
           child: Stack(children: [
@@ -63,52 +90,16 @@ class _MomentsPageState extends State<MomentsPage>
               left: 0,
               top: 14,
             ),
-
-            //TODO : add the fade effect
             Positioned(
               child: Icon(
                 Icons.arrow_drop_down,
-                color: Colors.white,
                 size: 14.0,
               ),
               right: 0,
-              top: 20,
+              top: 18,
             ),
           ]),
-        )),
-      ),
-      Tab(
-        text: '推荐',
-      ),
-      Tab(
-        text: '热榜',
-      )
-    ];
-    _tabViewList = [
-      ListView.builder(
-        itemCount: 3,
-        padding: EdgeInsets.fromLTRB(19, 8, 15, 0),
-        scrollDirection: Axis.vertical,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            child: TileSubscribe(),
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(width: 1, color: Color(0xffe5e5e5)))),
-          );
-        },
-      ),
-      MomentRecommendedPage(),
-      ForumPage(),
-    ];
-    _tabs = this._tabsOne;
-    _tabController.addListener(() {
-      setState(() {
-        if (_tabController.index != 0) {
-          _tabs = _tabsTwo;
-          return;
-        }
-        _tabs = _tabsOne;
+        )));
         return;
       });
     });
@@ -119,52 +110,80 @@ class _MomentsPageState extends State<MomentsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Material(
-        color: Colors.white,
+        // color: Colors.white,
         child: Column(
           children: [
-            Row(children: [
-              Expanded(
-                  child: GestureDetector(
-                    child: TabBar(
-                      controller: _tabController,
-                      tabs: _tabs,
-                      isScrollable: true,
-                      indicator: RoundUnderlineTabIndicator(
-                        borderSide: BorderSide(color: Colors.lightBlue, width: 2),
-                      ),
-                      unselectedLabelStyle: TextStyle(
-                        fontSize: 15.0,
-                      ),
-                      unselectedLabelColor: Colors.grey,
-                      labelStyle: TextStyle(fontSize: 20.0),
-                      labelColor: Colors.black,
-                    ),
-                  )),
-              GestureDetector(
-                onTap: () {
-                  MyApp.scaffoldKey.currentState.openDrawer();
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(right: 5),
+            Padding(
+              padding: kDefaultTabBarPadding.copyWith(left: 4, top: 9),
+              child: Row(children: [
+                Expanded(
+                  child: TabBar(
+                    controller: _tabController,
+                    tabs: _tabs,
+                    isScrollable: true,
+                    physics: CustomPhysics(),
+                    indicator: RoundUnderlineTabIndicator(
+                        borderSide: BorderSide(
+                            width: 2.5, color: Theme.of(context).accentColor)),
+                    unselectedLabelStyle:
+                        Theme.of(context).tabBarTheme.unselectedLabelStyle,
+                    labelStyle: Theme.of(context).tabBarTheme.labelStyle,
+                  ),
+                ),
+                Container(
+                  height: 40,
+                  width: 40,
+                  padding: EdgeInsets.all(5),
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      //TODO add the click navigator to the search page
+                    },
+                    backgroundColor: Colors.white,
+                    child: Icon(CupertinoIcons.search),
+                    elevation: 5.0,
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    MyApp.scaffoldKey.currentState.openDrawer();
+                  },
                   child: CircleAvatar(
                     radius: RadiusSizeConstants.circleAvatarSize,
                     backgroundImage: AssetImage('images/duoduo.jpg'),
                   ),
                 ),
-              ),
-            ]),
+              ]),
+            ),
             Expanded(
+                child: Padding(
+              padding: kDefaultTabViewPadding,
               child: TabBarView(
+                physics: CustomPhysics(),
                 controller: this._tabController,
                 children: this._tabViewList,
               ),
-            )
+            ))
           ],
         ),
       ),
 
       //TODO when the list is touched to down, it will disappear
-      floatingActionButton: FloatingActionButton(child: Text('多多'),onPressed: (){print('woaini');},),
+      floatingActionButton: AnimationFloatButton(
+        child: Container(width: 50,height: 50,
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+            size: IconSize.large_34,
+          ),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(RadiusSizeConstants.floatButtonSize),
+              color: Theme.of(context).accentColor),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

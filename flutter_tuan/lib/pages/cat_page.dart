@@ -13,7 +13,7 @@ import 'package:flutter_tuan/pages/cat_avtivity_list_page.dart';
 const DEFAULT_TEXT = '用户 | 活动 | 地点';
 
 class CategoryPage extends StatefulWidget {
-  static final ScrollController catActivityController=new ScrollController();
+  static final ScrollController catActivityController = new ScrollController();
   @override
   _CategoryPageState createState() => _CategoryPageState();
 }
@@ -43,24 +43,23 @@ class _CategoryPageState extends State<CategoryPage> {
                   onTap: () {
                     MyApp.scaffoldKey.currentState.openDrawer();
                   },
-                  child:  CircleAvatar(
-                      radius: RadiusSizeConstants.circleAvatarSize,
-                      backgroundImage: AssetImage('images/duoduo.jpg'),
-                    ),
+                  child: CircleAvatar(
+                    radius: RadiusSizeConstants.circleAvatarSize,
+                    backgroundImage: AssetImage('images/duoduo.jpg'),
                   ),
+                ),
               ]),
             ),
             Expanded(
                 child: ListView(
               padding: kDefaultTabViewPadding.copyWith(top: 14),
               controller: CategoryPage.catActivityController,
-              physics: BouncingScrollPhysics(),
+              physics:BouncingScrollPhysics(),
               children: [
                 CatPageBanner(catBannerListModel: _catBannerListModel),
                 SizedBox(
                   height: 20,
                 ),
-                //TODO add the common list to the commonlistmodel
                 CatActivityListPage(
                   catActivityListModel: this.list,
                 ),
@@ -81,7 +80,7 @@ class _CategoryPageState extends State<CategoryPage> {
 
     //TODO when the network is connected edit the catactivityListmodel;
 
-    this._catBannerListModel.data.addAll(getCatBannerList());
+    this._catBannerListModel.data.addAll(getCatBannerData());
     this.list.addAll(getCatActivitiesData());
     super.initState();
   }

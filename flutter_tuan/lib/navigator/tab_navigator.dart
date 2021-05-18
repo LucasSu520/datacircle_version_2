@@ -3,6 +3,7 @@ import 'package:flutter_tuan/pages/cat_avtivity_list_page.dart';
 import 'package:flutter_tuan/pages/cat_page.dart';
 import 'package:flutter_tuan/pages/message_page.dart';
 import 'package:flutter_tuan/pages/moment_page.dart';
+import 'package:flutter_tuan/pages/moment_sub_activity_list_page.dart';
 import 'package:flutter_tuan/pages/my_page.dart';
 import 'package:flutter_tuan/pages/tuan_activity_list_page.dart';
 import 'package:flutter_tuan/pages/tuan_page.dart';
@@ -52,6 +53,9 @@ class _TabNavigatorState extends State<TabNavigator> {
                   break;
                 case 1:
                   CategoryPage.catActivityController.jumpTo(0.0);
+                  break;
+                case 2:
+                  MomentSubActivityListPage.MomentController.jumpTo(0.0);
                   break;
               }
             }

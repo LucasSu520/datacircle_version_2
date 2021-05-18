@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/constants/radius_size_constant.dart';
-import 'package:flutter_tuan/model/common_model.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
 
 import '../main.dart';
@@ -12,7 +11,7 @@ class MessagePage extends StatefulWidget {
 
 class _MessagePageState extends State<MessagePage>
     with TickerProviderStateMixin {
-  List<CommonModel> localNavList;
+  List localNavList;
   List<Tab> _tabBarList;
   TabController mController;
   TabBarView _tabBarView;

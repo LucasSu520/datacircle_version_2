@@ -1,6 +1,6 @@
 import 'package:flutter_tuan/model/cat_banner_model.dart';
 
-getCatBannerList() {
+getCatBannerData() {
   List<CatBannerItemModel> catBannerList = <CatBannerItemModel>[
     CatBannerItemModel(image: 'images/lunZiMa.jpg'),
     CatBannerItemModel(image: 'images/food.jpg'),
