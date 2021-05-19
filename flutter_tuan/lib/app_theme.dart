@@ -61,7 +61,7 @@ class AppTheme {
     // h6 -> title
     fontWeight: FontWeight.bold,
     fontSize: 16,
-    letterSpacing: 0.18,
+    letterSpacing: 0.20,
     color: darkerText,
   );
 

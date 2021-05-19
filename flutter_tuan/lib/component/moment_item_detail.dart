@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/model/moment_sub_activity_model.dart';
+import 'package:flutter_tuan/model/moment_model.dart';
 import 'package:flutter_tuan/pages/cat_page.dart';
 
 import '../app_theme.dart';
 import 'ExpandedText.dart';
 
-class MomentSubActivityDetail extends StatelessWidget {
-  MomentSubActivityDetail({this.item});
-  final MomentSubActivityItemModel item;
+class MomentItemDetail extends StatelessWidget {
+  MomentItemDetail({this.item});
+  final MomentItemModel item;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,16 +18,22 @@ class MomentSubActivityDetail extends StatelessWidget {
             child: (Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      image: DecorationImage(
-                          image: AssetImage(item.avatar), fit: BoxFit.cover)),
-                ),
+                item.group == null
+                    ? Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            image: DecorationImage(
+                                image: AssetImage(item.avatar),
+                                fit: BoxFit.cover)),
+                      )
+                    : CircleAvatar(
+                        backgroundImage: AssetImage(item.avatar),
+                        radius: 25,
+                      ),
                 SizedBox(
-                  width: 5,
+                  width: 8,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,14 +41,50 @@ class MomentSubActivityDetail extends StatelessWidget {
                   children: [
                     Text(
                       item.name,
+                      // TODO
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
-                    Text(item.time, style: AppTheme.subtitle)
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                      Text(item.time, style: AppTheme.subtitle),
+                      item.group == null
+                          ? SizedBox(width: 0,)
+                          : RichText(
+                                    text: TextSpan(text: '·', children: [
+                                  TextSpan(
+                                    text: item.group,
+                                    style: TextStyle(
+                                        color: Theme.of(context).accentColor),
+                                  ),
+                                ])),
+                              ],
+                    )
                   ],
-                )
+                ),
+                item.group == null
+                    ? Container()
+                    : Expanded(
+                        child: Container(
+                          height: 30,
+                          alignment: Alignment.centerRight,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              print('多多');
+                            },
+                            child: Text('关注'),
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.lightBlue),
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15))))),
+                          ),
+                        ),
+                      )
               ],
             ))),
         Padding(
@@ -50,6 +92,7 @@ class MomentSubActivityDetail extends StatelessWidget {
           child: ExpandedText(
             expandText: '查看全文',
             text: item.content,
+            style: AppTheme.title.copyWith(fontWeight: FontWeight.w500),
             textAlign: TextAlign.start,
             maxLines: 4,
             route: MaterialPageRoute(builder: (ctx) {

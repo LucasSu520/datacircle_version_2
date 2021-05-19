@@ -10,5 +10,5 @@ getCatActivityResult() async {
   String body = response.body;
   var json = jsonDecode(body);
 
-  return CatActivityListModel.fromJson(json) as List;
+  return json['item'] as List;
 }

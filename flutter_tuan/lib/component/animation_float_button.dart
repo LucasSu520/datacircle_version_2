@@ -2,9 +2,9 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class NotifierAnimation extends ChangeNotifier {
-  ValueChanged stopValueChanged;
-  void animationStartAndEnd(isStop) {
-    stopValueChanged(isStop);
+  ValueChanged isScrollUp;
+  void animationStartAndEnd(isUp) {
+    isScrollUp(isUp);
     notifyListeners();
   }
 }
@@ -43,14 +43,14 @@ class _AnimationFloatButtonState extends State<AnimationFloatButton>
     super.didChangeDependencies();
     final counter = Provider.of<NotifierAnimation>(context);
     if (counter != null) {
-      Provider.of<NotifierAnimation>(context, listen: false).stopValueChanged =
+      Provider.of<NotifierAnimation>(context, listen: false).isScrollUp =
           ((v) {
         if (v) {
           //开始动画
-          _animationController.forward();
+          _animationController.reverse();
         } else {
           //复位动画
-          _animationController.reverse();
+          _animationController.forward();
         }
       });
     }

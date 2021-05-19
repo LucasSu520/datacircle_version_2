@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/pages/cat_avtivity_list_page.dart';
 import 'package:flutter_tuan/pages/cat_page.dart';
 import 'package:flutter_tuan/pages/message_page.dart';
 import 'package:flutter_tuan/pages/moment_page.dart';
-import 'package:flutter_tuan/pages/moment_sub_activity_list_page.dart';
+import 'package:flutter_tuan/pages/moment_sub_list_page.dart';
 import 'package:flutter_tuan/pages/my_page.dart';
 import 'package:flutter_tuan/pages/tuan_activity_list_page.dart';
 import 'package:flutter_tuan/pages/tuan_page.dart';
 
 class TabNavigator extends StatefulWidget {
-  Key key;
+  final Key key;
   TabNavigator({this.key});
   @override
   _TabNavigatorState createState() => _TabNavigatorState();
@@ -55,7 +54,7 @@ class _TabNavigatorState extends State<TabNavigator> {
                   CategoryPage.catActivityController.jumpTo(0.0);
                   break;
                 case 2:
-                  MomentSubActivityListPage.MomentController.jumpTo(0.0);
+                  // MomentSubListPage.MomentController.jumpTo(0.0);
                   break;
               }
             }

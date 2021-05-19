@@ -31,6 +31,8 @@ dependencies:
   http: ^0.13.3
   build_runner: ^1.10.0
   provider: ^5.0.0
+  lazy_loading_list: ^1.0.1
+  lazy_load_scrollview: ^1.3.0
 
 
 
@@ -62,6 +64,8 @@ flutter:
   assets:
     - skate.jpg
     - search.png
+    - OeckCEO.jpg
+    - chat.jpg
     - wolfKill.jpeg
     - party.jpg
     - food.jpg
@@ -73,6 +77,8 @@ flutter:
     - PUBG.jpeg
     - computer.jpeg
     - lol.jpg
+    - huangTouXiang.jpg
+    - picOne.jpg
     - MeetingRoom.jpg
     - ring3.jpg
     - lunZiMa.jpg

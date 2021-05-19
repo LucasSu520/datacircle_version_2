@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/component/animation_float_button.dart';
-import 'package:flutter_tuan/data/moment_sub_activity_data.dart';
-import 'package:flutter_tuan/model/moment_sub_activity_model.dart';
-import 'package:flutter_tuan/pages/moment_sub_activity_list_page.dart';
+import 'package:flutter_tuan/data/moment_sub_data.dart';
+import 'package:flutter_tuan/model/moment_model.dart';
 import 'package:provider/provider.dart';
+
+import 'moment_sub_list_page.dart';
 
 class MomentSubActivityPage extends StatefulWidget {
   @override
@@ -12,13 +13,13 @@ class MomentSubActivityPage extends StatefulWidget {
 
 class _MomentSubActivityPageState extends State<MomentSubActivityPage> with AutomaticKeepAliveClientMixin {
 
-  MomentSubActivityListModel momentSubActivityList;
+  MomentListModel momentSubActivityList;
 
   void getNextPage(){
     int page=0;
     Future.delayed(Duration(milliseconds: 0)).then((e) {
       setState(() {
-        momentSubActivityList.data.addAll(getMomentSubActivityData());
+        momentSubActivityList.data.addAll(getMomentSubData());
       });
     });
   }
@@ -26,7 +27,7 @@ class _MomentSubActivityPageState extends State<MomentSubActivityPage> with Auto
 
   @override
   void initState() {
-    momentSubActivityList=MomentSubActivityListModel([]);
+    momentSubActivityList=MomentListModel([]);
     getNextPage();
     super.initState();
   }
@@ -46,18 +47,12 @@ class _MomentSubActivityPageState extends State<MomentSubActivityPage> with Auto
     //手指移动的距离
     var position = event.position.distance;
     //判断距离差
-    var detal = position - _lastMoveY;
-    if (detal > 0) {
-    //手指移动的距离
-    Provider.of<NotifierAnimation>(context,listen: false).animationStartAndEnd(false);
-    } else {
-    // 所摸点长度 +滑动距离  = IistView的长度  说明到达底部
-      Provider.of<NotifierAnimation>(context,listen: false).animationStartAndEnd(true);
-    }
+    var detail = position - _lastMoveY;
+    bool isUp=detail>0?true:false;
+    Provider.of<NotifierAnimation>(context,listen: false).animationStartAndEnd(isUp);
     _lastMoveY = position;
     },
-
-        child: MomentSubActivityListPage(getNextPage: getNextPage,list: momentSubActivityList,)
+        child: MomentSubListPage(getNextPage: getNextPage,list: momentSubActivityList,)
     );
   }
 

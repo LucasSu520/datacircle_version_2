@@ -52,7 +52,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
             Expanded(
                 child: ListView(
-              padding: kDefaultTabViewPadding.copyWith(top: 14),
+              padding: kDefaultTabViewPadding.copyWith(top: 14,left: 21),
               controller: CategoryPage.catActivityController,
               physics:BouncingScrollPhysics(),
               children: [

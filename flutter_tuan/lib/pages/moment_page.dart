@@ -4,12 +4,13 @@ import 'package:flutter_tuan/component/animation_float_button.dart';
 import 'package:flutter_tuan/component/custom_physics.dart';
 import 'package:flutter_tuan/constants/constant.dart';
 import 'package:flutter_tuan/constants/radius_size_constant.dart';
-import 'package:flutter_tuan/pages/forum_page.dart';
-import 'package:flutter_tuan/pages/moment_recommendedPage.dart';
+import 'package:flutter_tuan/pages/moment_forum_page.dart';
+import 'package:flutter_tuan/pages/moment_recom_page.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
-import 'package:flutter_tuan/pages/moment_sub_activity_page.dart';
+
 
 import '../main.dart';
+import 'moment_sub_page.dart';
 
 const List<String> tabBarName = ['关注', '推荐', '热榜'];
 
@@ -114,7 +115,7 @@ class _MomentsPageState extends State<MomentsPage>
         child: Column(
           children: [
             Padding(
-              padding: kDefaultTabBarPadding.copyWith(left: 4, top: 9),
+              padding: kDefaultTabBarPadding.copyWith(left: 0, top: 9),
               child: Row(children: [
                 Expanded(
                   child: TabBar(
@@ -159,7 +160,7 @@ class _MomentsPageState extends State<MomentsPage>
             ),
             Expanded(
                 child: Padding(
-              padding: kDefaultTabViewPadding,
+              padding: kDefaultTabViewPadding.copyWith(left: 21),
               child: TabBarView(
                 physics: CustomPhysics(),
                 controller: this._tabController,

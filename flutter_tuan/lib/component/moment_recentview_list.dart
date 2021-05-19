@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tuan/component/view_recently_item.dart';
+import 'package:flutter_tuan/component/moment_recentview_item.dart';
+import 'package:flutter_tuan/model/moment_recentview_model.dart';
 
-class ViewRecently extends StatefulWidget {
+class MomentRecentViewList extends StatefulWidget {
+  MomentRecentViewList({this.list});
+  final MomentRecentViewListModel list;
   @override
-  _ViewRecentlyState createState() => _ViewRecentlyState();
+  _MomentRecentViewListState createState() => _MomentRecentViewListState();
 }
 
-class _ViewRecentlyState extends State<ViewRecently> {
+class _MomentRecentViewListState extends State<MomentRecentViewList> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,13 +38,13 @@ class _ViewRecentlyState extends State<ViewRecently> {
         Container(
           height: 120,
           child: ListView.builder(
-            itemCount: 12,
+            itemCount: widget.list.data.length,
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.fromLTRB(0, 4, 10, 4),
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: EdgeInsets.only(right: 6),
-                child: ViewRecentlyItem(),
+                child: MomentRecentViewItem(item: widget.list.data[index],),
               );
             },
           ),
