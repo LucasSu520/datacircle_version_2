@@ -10,4 +10,4 @@ const double kDefaultListTilePadding=10;
 const EdgeInsets kDefaultTabViewPadding=EdgeInsets.symmetric(horizontal:19 );
 
 //the padding of the tab var
-const EdgeInsets kDefaultTabBarPadding=EdgeInsets.only(left: 8,right: 18,top: 8);
+const EdgeInsets kDefaultTabBarPadding=EdgeInsets.only(left:18 ,right: 18,top: 8);

@@ -3,9 +3,18 @@ import 'package:flutter_tuan/app_theme.dart';
 import 'package:flutter_tuan/component/custom_drawer.dart';
 import 'package:flutter_tuan/navigator/tab_navigator.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import 'component/animation_float_button.dart';
 
 void main() {
-  runApp(MyApp());
+  NotifierAnimation notifierAnimation = NotifierAnimation();
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider.value(value: notifierAnimation),
+    ],
+    child: MyApp(),
+  ));
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.light,
