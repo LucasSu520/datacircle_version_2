@@ -6,7 +6,6 @@ import 'package:flutter_tuan/data/cat_banner_data.dart';
 import 'package:flutter_tuan/main.dart';
 import 'package:flutter_tuan/model/cat_activity_model.dart';
 import 'package:flutter_tuan/model/cat_banner_model.dart';
-
 import 'package:flutter_tuan/component/search_bar.dart';
 import 'package:flutter_tuan/pages/cat_avtivity_list_page.dart';
 
@@ -29,7 +28,7 @@ class _CategoryPageState extends State<CategoryPage> {
         child: Column(
           children: [
             Padding(
-              padding: kDefaultTabBarPadding.copyWith(top: 13),
+              padding: kDefaultTabBarPadding.copyWith(top: 13,bottom: 5),
               child: Row(children: [
                 (Expanded(
                     child: SearchBar(

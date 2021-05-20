@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/model/moment_model.dart';
 import 'package:flutter_tuan/pages/cat_page.dart';
-
 import '../app_theme.dart';
 import 'ExpandedText.dart';
 
@@ -18,20 +17,7 @@ class MomentItemDetail extends StatelessWidget {
             child: (Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                item.group == null
-                    ? Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            image: DecorationImage(
-                                image: AssetImage(item.avatar),
-                                fit: BoxFit.cover)),
-                      )
-                    : CircleAvatar(
-                        backgroundImage: AssetImage(item.avatar),
-                        radius: 25,
-                      ),
+                CircleAvatar(backgroundImage: AssetImage(item.avatar,),radius: 25,),
                 SizedBox(
                   width: 8,
                 ),
@@ -47,44 +33,65 @@ class MomentItemDetail extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w600),
                     ),
-                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                      Text(item.time, style: AppTheme.subtitle),
-                      item.group == null
-                          ? SizedBox(width: 0,)
-                          : RichText(
-                                    text: TextSpan(text: '·', children: [
-                                  TextSpan(
-                                    text: item.group,
-                                    style: TextStyle(
-                                        color: Theme.of(context).accentColor),
-                                  ),
-                                ])),
-                              ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(item.time, style: AppTheme.subtitle),
+                      ],
                     )
                   ],
                 ),
-                item.group == null
-                    ? Container()
-                    : Expanded(
-                        child: Container(
-                          height: 30,
-                          alignment: Alignment.centerRight,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              print('多多');
-                            },
-                            child: Text('关注'),
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.lightBlue),
-                                shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(15))))),
-                          ),
+                Expanded(
+                  child: Container(
+                    height: 25,
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                        onTap: () {
+                          print('多多');
+                        },
+                        child: item.isSubscribe
+                            ? Container(
+                                height: 25,
+                                width: 70,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  '已关注',
+                                  style: TextStyle(
+                                      color: Color(0x88555555),
+                                      fontWeight: FontWeight.w600),
+                                  textAlign: TextAlign.center,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Color(0x99EEEEEE),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12)),
+                                ))
+                            : Container(
+                                height: 25,
+                                width: 70,
+                                alignment: Alignment.center,
+                                child: Text('关注',
+                                    style: TextStyle(
+                                        color: Theme.of(context).accentColor,
+                                        fontWeight: FontWeight.w600),
+                                    textAlign: TextAlign.center),
+                                decoration: BoxDecoration(
+                                    color: Color(0x99CCFFFF),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12))),
+                              )
+                        // style: ButtonStyle(
+                        //     backgroundColor: MaterialStateProperty.all<Color>(
+                        //         item.isSubscribe
+                        //             ? Colors.grey
+                        //             : Color(0x99CCFFFF)),
+                        //     shape: MaterialStateProperty.all(
+                        //         RoundedRectangleBorder(
+                        //             borderRadius: BorderRadius.all(
+                        //                 Radius.circular(12)))))
                         ),
-                      )
+                  ),
+                )
               ],
             ))),
         Padding(
