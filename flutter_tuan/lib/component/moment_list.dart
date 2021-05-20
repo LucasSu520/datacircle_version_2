@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/component/moment_item_detail.dart';
 import 'package:flutter_tuan/model/moment_model.dart';
-import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
-class MomentSubListPage extends StatefulWidget {
-  MomentSubListPage({this.getNextPage, this.list,this.physics});
+class MomentList extends StatefulWidget {
+  MomentList({this.getNextPage, this.list,this.physics});
   final VoidCallback getNextPage;
   final MomentListModel list;
   final ScrollPhysics physics;
 
   @override
-  _MomentSubListPageState createState() =>
-      _MomentSubListPageState();
+  _MomentListState createState() =>
+      _MomentListState();
 }
 
-class _MomentSubListPageState extends State<MomentSubListPage> {
+class _MomentListState extends State<MomentList> {
   ScrollController controller;
 
 

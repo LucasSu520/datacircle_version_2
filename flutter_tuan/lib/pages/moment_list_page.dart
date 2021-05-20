@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/component/animation_float_button.dart';
-import 'package:flutter_tuan/data/moment_sub_data.dart';
+import 'package:flutter_tuan/data/moment_data.dart';
 import 'package:flutter_tuan/model/moment_model.dart';
 import 'package:provider/provider.dart';
 
-import 'moment_sub_list_page.dart';
+import '../component/moment_list.dart';
 
-class MomentSubActivityPage extends StatefulWidget {
+class MomentListPage extends StatefulWidget {
   @override
-  _MomentSubActivityPageState createState() => _MomentSubActivityPageState();
+  _MomentListPageState createState() => _MomentListPageState();
 }
 
-class _MomentSubActivityPageState extends State<MomentSubActivityPage> with AutomaticKeepAliveClientMixin {
+class _MomentListPageState extends State<MomentListPage> {
 
   MomentListModel momentSubActivityList;
 
@@ -19,7 +19,7 @@ class _MomentSubActivityPageState extends State<MomentSubActivityPage> with Auto
     int page=0;
     Future.delayed(Duration(milliseconds: 0)).then((e) {
       setState(() {
-        momentSubActivityList.data.addAll(getMomentSubData());
+        momentSubActivityList.data.addAll(getMomentData());
       });
     });
   }
@@ -34,7 +34,6 @@ class _MomentSubActivityPageState extends State<MomentSubActivityPage> with Auto
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     double _lastMoveY = 0.0;
     //手指按下的位置
     double _downY = 0.0;
@@ -52,7 +51,7 @@ class _MomentSubActivityPageState extends State<MomentSubActivityPage> with Auto
     Provider.of<NotifierAnimation>(context,listen: false).animationStartAndEnd(isUp);
     _lastMoveY = position;
     },
-        child: MomentSubListPage(getNextPage: getNextPage,list: momentSubActivityList,)
+        child: MomentList(getNextPage: getNextPage,list: momentSubActivityList,)
     );
   }
 

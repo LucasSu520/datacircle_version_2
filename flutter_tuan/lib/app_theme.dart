@@ -117,7 +117,6 @@ class AppTheme {
     return base.copyWith(
       colorScheme: colorScheme,
       primaryColor: primaryColor,
-      buttonColor: primaryColor,
       indicatorColor: secondaryColor,
       splashColor: Colors.white24,
       splashFactory: InkRipple.splashFactory,
