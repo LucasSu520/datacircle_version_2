@@ -2,10 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tuan/component/custom_physics.dart';
 import 'package:flutter_tuan/component/roundUnderlineTabIndicator.dart';
+import 'package:flutter_tuan/component/scale_tabbar.dart';
 import 'package:flutter_tuan/constants/radius_size_constant.dart';
-
 import '../main.dart';
+import 'my_activity_page.dart';
+
+const List<String> tabBarNameList = ['全部活动', '已报名', '待评价'];
 
 class MyPage extends StatefulWidget {
   @override
@@ -15,21 +19,18 @@ class MyPage extends StatefulWidget {
 class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
   List<Tab> _tabBarList;
   TabController mController;
+  List<Widget> _tabViewList;
 
   @override
   void initState() {
-    this._tabBarList = [
-      Tab(text: '全部活动'),
-      Tab(
-        text: '已报名',
-      ),
-      Tab(
-        text: '待评价',
-      ),
-      Tab(
-        text: '已预约',
-      )
-    ];
+    this._tabBarList = <Tab>[];
+    this._tabViewList=<Widget>[];
+    tabBarNameList.forEach((element) {
+      this._tabBarList.add(Tab(
+            text: element,
+          ));
+      this._tabViewList.add(MyActivityPage(name: element,));
+    });
     this.mController =
         new TabController(length: this._tabBarList.length, vsync: this);
     super.initState();
@@ -42,32 +43,27 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(19, 8, 19, 0),
-            child: Row(children: [
-              Expanded(
-                child: Text(
-                  '我的活动',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            padding: EdgeInsets.only(
+              top: 13,
+              right: 18,
+            ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment(1, 0),
+                  child: Icon(Icons.headset_mic_rounded),
                 ),
-              ),
-              Icon(
-                Icons.settings,
-                size: 24,
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Icon(
-                Icons.headset_mic_rounded,
-                size: 24,
-              )
-            ]),
+                Align(
+                  alignment: Alignment(0.75, 0),
+                  child: Icon(Icons.settings),
+                )
+              ],
+            ),
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(
               18,
-              8,
+              0,
               18,
               0,
             ),
@@ -81,8 +77,8 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
                   child: Padding(
                     padding: EdgeInsets.only(right: 5),
                     child: CircleAvatar(
-                      radius: RadiusSizeConstants.circleAvatarSize,
-                      backgroundImage: AssetImage('images/food.jpg'),
+                      radius: RadiusSizeConstants.circleAvatarSize * 1.5,
+                      backgroundImage: AssetImage('images/duoduo.jpg'),
                     ),
                   ),
                 ),
@@ -141,11 +137,96 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
             ),
           ),
           Padding(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            child: Container(
+              height: 12,
+              color: Colors.grey.withOpacity(0.1),
+            ),
+          ),
+          Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Container(
+                height: 70,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      'images/grid-nav-items-flight.png',
+                      fit: BoxFit.cover,
+                      width: MediaQuery.of(context).size.width,
+                      alignment: AlignmentDirectional.bottomStart,
+                    ),
+                    Align(
+                      child: Container(
+                        width: 140,
+                        height: 30,
+                        child: Text(
+                          '邀请好友',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        alignment: Alignment.centerLeft,
+                      ),
+                      alignment: Alignment(-0.3, -0.7),
+                    ),
+                    Align(
+                      child: Image.asset(
+                        'images/rabbit2.png',
+                        height: 50,
+                        width: 50,
+                        fit: BoxFit.cover,
+                      ),
+                      alignment: Alignment(-0.9, 0),
+                    ),
+                    Align(
+                      child: Container(
+                        width: 140,
+                        height: 30,
+                        child: Text(
+                          '邀请好友一起玩团团',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black38,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        alignment: Alignment.centerLeft,
+                      ),
+                      alignment: Alignment(-0.3, 0.7),
+                    ),
+                    Align(
+                        child: Container(
+                      height: 30,
+                      alignment: Alignment.center,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.all(Radius.circular(18))),
+                      child: Text(
+                        '立即邀请',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, color: Colors.white),
+                      ),
+                    ),alignment: Alignment(0.5,0),)
+                  ],
+                ),
+              )),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Container(
+              height: 12,
+              color: Colors.grey.withOpacity(0.1),
+            ),
+          ),
+          Padding(
               padding: EdgeInsets.fromLTRB(10, 20, 18, 0),
               child: Container(
                 height: 35,
                 alignment: Alignment.centerLeft,
-                child: TabBar(
+                child: ScaleTabBar(
                   indicatorSize: TabBarIndicatorSize.label,
                   tabs: this._tabBarList,
                   controller: mController,
@@ -162,20 +243,8 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
               )),
           Expanded(
             child: TabBarView(
-              children: [
-                Center(
-                  child: Text('多多'),
-                ),
-                Center(
-                  child: Text('多多'),
-                ),
-                Center(
-                  child: Text('多多'),
-                ),
-                Center(
-                  child: Text('多多'),
-                )
-              ],
+              physics: CustomPhysics(),
+              children:this._tabViewList,
               controller: this.mController,
             ),
           )

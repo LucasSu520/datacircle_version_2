@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/pages/cat_page.dart';
-import 'package:flutter_tuan/pages/message_page.dart';
 import 'package:flutter_tuan/pages/moment_page.dart';
 import 'package:flutter_tuan/pages/my_page.dart';
 import 'package:flutter_tuan/pages/tuan_activity_list_page.dart';
@@ -22,7 +21,7 @@ class _TabNavigatorState extends State<TabNavigator> {
 
   @override
   void initState() {
-    pages=[TuanPage(),CategoryPage(),MomentsPage(),MessagePage(),MyPage()];
+    pages=[TuanPage(),CategoryPage(),MomentsPage(),MyPage()];
     this._currentPage=0;
     super.initState();
   }
@@ -63,12 +62,11 @@ class _TabNavigatorState extends State<TabNavigator> {
         currentIndex: _currentPage,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: 14,
-        selectedItemColor: Theme.of(context).accentColor,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: '团'),
           BottomNavigationBarItem(icon: Icon(Icons.category),label: '分类'),
           BottomNavigationBarItem(icon: Icon(Icons.message),label: '动态'),
-          BottomNavigationBarItem(icon: Icon(Icons.mail),label: '消息'),
           BottomNavigationBarItem(icon: Icon(Icons.person),label: '我的'),
         ],
       ),

@@ -100,6 +100,10 @@ flutter:
     - CS.jpg
     - strawberry.jpg
     - guitar.jpg
+    - rabbit.jpeg
+    - rabbit2.png
+    - rabbit1.png
+    - grid-nav-items-flight.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

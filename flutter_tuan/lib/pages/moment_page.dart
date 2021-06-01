@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tuan/component/animation_float_button.dart';
+import 'package:flutter_tuan/component/moment_list.dart';
 
 import 'package:flutter_tuan/component/search_bar.dart';
 import 'package:flutter_tuan/constants/constant.dart';
@@ -16,20 +17,40 @@ class MomentsPage extends StatefulWidget {
 }
 
 class _MomentsPageState extends State<MomentsPage> {
+  // double borderWidth = !MomentList.momentScrollController.hasClients
+  //     ? 0
+  //     : MomentList.momentScrollController.offset == 0
+  //         ? 0
+  //         : 1.0;
   @override
   void initState() {
     super.initState();
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Material(
         // color: Colors.white,
-        child:  Column(
-            children: [
-              Padding(
-                padding: kDefaultTabBarPadding.copyWith(top: 13,bottom: 5),
+        child: Column(
+          children: [
+            Container(
+              decoration: ShapeDecoration(
+                  shape: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.black12,
+                          width: 1.0,
+                          // style: !MomentList.momentScrollController.hasClients
+                          //     ? BorderStyle.none
+                          //     : MomentList.momentScrollController.offset == 0
+                          //         ? BorderStyle.none
+                          //         : BorderStyle.solid
+                   ))),
+              child: Padding(
+                padding: kDefaultTabBarPadding.copyWith(top: 13, bottom: 5),
                 child: Row(children: [
                   (Expanded(
                       child: SearchBar(
@@ -50,16 +71,15 @@ class _MomentsPageState extends State<MomentsPage> {
                   ),
                 ]),
               ),
-              Expanded(
-                  child: Padding(
-                padding: kDefaultTabViewPadding.copyWith(left: 21,right: 16),
-                child: MomentListPage(),
-              ))
-            ],
-          ),
+            ),
+            Expanded(
+                child: Padding(
+              padding: kDefaultTabViewPadding.copyWith(left: 21, right: 16),
+              child: MomentListPage(),
+            ))
+          ],
         ),
-
-      //TODO when the list is touched to down, it will disappear
+      ),
       floatingActionButton: AnimationFloatButton(
         child: Container(
           width: 50,

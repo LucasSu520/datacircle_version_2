@@ -35,8 +35,7 @@ class TuanActivityListPage extends StatefulWidget {
         itemCount: widget.activityListModel.data.length,
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.only(top: 6),
-        controller
-        :TuanActivityListPage.tuanActivityScrollController,
+        controller:TuanActivityListPage.tuanActivityScrollController,
         scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           if (index + 1 == widget.activityListModel.data.length) {

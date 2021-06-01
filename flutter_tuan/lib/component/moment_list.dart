@@ -3,25 +3,22 @@ import 'package:flutter_tuan/component/moment_item_detail.dart';
 import 'package:flutter_tuan/model/moment_model.dart';
 
 class MomentList extends StatefulWidget {
-  MomentList({this.getNextPage, this.list,this.physics});
+  static final ScrollController momentScrollController = new ScrollController();
+
+  MomentList({this.getNextPage, this.list, this.physics});
   final VoidCallback getNextPage;
   final MomentListModel list;
   final ScrollPhysics physics;
 
   @override
-  _MomentListState createState() =>
-      _MomentListState();
+  _MomentListState createState() => _MomentListState();
 }
 
 class _MomentListState extends State<MomentList> {
-  ScrollController controller;
-
-
   @override
   Widget build(BuildContext context) {
-    return
-      ListView.builder(shrinkWrap: true,
-      // controller: MomentSubListPage.MomentController,
+    return ListView.builder(
+      shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) {
         return Container(
           child: MomentItemDetail(item: widget.list.data[index]),
@@ -31,26 +28,23 @@ class _MomentListState extends State<MomentList> {
         );
       },
       itemCount: widget.list.data.length,
-        controller: controller,
+      controller: MomentList.momentScrollController,
     );
-
-
-
   }
-
 
   @override
   void dispose() {
-    controller.removeListener(() { });
+    MomentList.momentScrollController.removeListener(() {});
     super.dispose();
   }
 
   @override
   void initState() {
-    controller=new ScrollController()..addListener(() {
-      print(controller.position.pixels);
-      if(controller.position.extentAfter<3)
-      widget.getNextPage();});
+    MomentList.momentScrollController.addListener(() {
+      print(MomentList.momentScrollController.position.pixels);
+      if (MomentList.momentScrollController.position.extentAfter < 3)
+        widget.getNextPage();
+    });
     super.initState();
   }
 }
